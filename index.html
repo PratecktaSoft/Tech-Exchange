@@ -3,29 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TechXchange — Apple & Device Experts | Mumbai's #1 Repair & Exchange Center</title>
-<meta name="description" content="Mumbai's most trusted iPhone, iPad & MacBook repair and exchange center. Genuine Apple parts, same-day service, 6-month warranty.">
+<title>TechXchange — Apple & Device Experts | Kolkata's #1 Repair & Exchange Center</title>
+<meta name="description" content="Kolkata's most trusted iPhone, iPad & MacBook repair and exchange center. Genuine Apple parts, same-day service, 6-month warranty.">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#07070f;
-  --s1:#0d0d1a;
-  --s2:#131322;
-  --s3:#1a1a2e;
-  --border:rgba(255,255,255,0.08);
-  --bh:rgba(41,151,255,0.35);
-  --blue:#0071e3;
-  --bluel:#2997ff;
-  --gold:#f5c542;
-  --green:#30d158;
-  --red:#ff453a;
-  --purple:#bf5af2;
-  --orange:#ff9f0a;
-  --text:#f5f5f7;
-  --dim:#86868b;
-  --dimmer:#3d3d42;
-  --r:22px;
-  --rs:14px;
+  --bg:#07070f;--s1:#0d0d1a;--s2:#131322;--s3:#1a1a2e;
+  --border:rgba(255,255,255,0.08);--bh:rgba(41,151,255,0.35);
+  --blue:#0071e3;--bluel:#2997ff;--gold:#f5c542;--green:#30d158;
+  --red:#ff453a;--purple:#bf5af2;--orange:#ff9f0a;
+  --text:#f5f5f7;--dim:#86868b;--dimmer:#3d3d42;
+  --r:22px;--rs:14px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -33,19 +21,17 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;lin
 img{display:block;width:100%;height:100%;object-fit:cover}
 a{text-decoration:none;color:inherit}
 button{font-family:'DM Sans',sans-serif;cursor:pointer}
-
-/* SCROLLBAR */
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--blue);border-radius:4px}
 
-/* ── CURSOR ── */
+/* CURSOR */
 #cur,#ring{position:fixed;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);z-index:9999}
 #cur{width:10px;height:10px;background:var(--bluel);top:0;left:0;transition:width .18s,height .18s;mix-blend-mode:screen}
 #ring{width:36px;height:36px;border:1.5px solid rgba(41,151,255,.3);top:0;left:0;z-index:9998;transition:width .28s,height .28s}
 @media(max-width:768px){#cur,#ring{display:none}body{cursor:auto}}
 
-/* ── NAV ── */
+/* NAV */
 nav{position:fixed;inset:0 0 auto;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:22px 64px;transition:all .4s}
 nav.sc{background:rgba(7,7,15,.94);backdrop-filter:blur(28px) saturate(200%);border-bottom:1px solid var(--border);padding:13px 64px}
 .logo{display:flex;align-items:center;gap:10px;font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;letter-spacing:-.03em}
@@ -65,14 +51,14 @@ nav.sc{background:rgba(7,7,15,.94);backdrop-filter:blur(28px) saturate(200%);bor
 .hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:5px}
 .hamburger span{display:block;width:23px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
 
-/* MOBILE DRAWER */
+/* DRAWER */
 .drawer{position:fixed;inset:0;z-index:490;background:rgba(7,7,15,.98);backdrop-filter:blur(30px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity .3s}
 .drawer.open{opacity:1;pointer-events:all}
 .drawer a{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:700;color:var(--text);transition:color .2s}
 .drawer a:hover{color:var(--bluel)}
 .drawer .btn-nav{font-size:1rem;padding:14px 36px}
 
-/* ── SHARED ── */
+/* SHARED */
 .section-label{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;color:var(--bluel);text-transform:uppercase;letter-spacing:.12em;margin-bottom:12px}
 .section-label::before{content:'';width:22px;height:2px;background:var(--bluel);border-radius:2px}
 h2.title{font-family:'Syne',sans-serif;font-size:clamp(2rem,4.5vw,3.8rem);font-weight:800;letter-spacing:-.04em;line-height:1.03;margin-bottom:16px}
@@ -88,25 +74,41 @@ section{position:relative;z-index:1}
 .rv.in{opacity:1;transform:translateY(0)}
 .rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}.rv.d5{transition-delay:.5s}
 
-/* ── HERO ── */
+/* ══════ HERO ══════ */
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:130px 64px 90px}
-.hero-bg{position:absolute;inset:0;z-index:0}
-.hero-bg img{object-position:center;filter:brightness(.18) saturate(1.2)}
-.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(7,7,15,.97) 0%,rgba(7,7,15,.75) 50%,rgba(7,7,15,.55) 100%)}
+
+/* BG SLIDESHOW */
+.hero-slideshow{position:absolute;inset:0;z-index:0}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s ease-in-out}
+.slide.active{opacity:1}
+.slide img{width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.22) saturate(1.3)}
+
+/* SIDE-BY-SIDE SLIDING PANELS */
+.hero-panels{position:absolute;inset:0;z-index:0;display:flex;overflow:hidden}
+.panel-strip{display:flex;gap:0;animation:panelScroll 28s linear infinite;will-change:transform}
+.panel-strip.rev{animation:panelScrollRev 32s linear infinite;animation-delay:-8s}
+.panel-img{flex-shrink:0;width:320px;height:50vh;position:relative;margin:2px}
+.panel-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.28) saturate(1.2)}
+.panels-top{height:50%;display:flex;align-items:stretch}
+.panels-bot{height:50%;display:flex;align-items:stretch}
+@keyframes panelScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes panelScrollRev{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+
+.hero-dark-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(7,7,15,.97) 0%,rgba(7,7,15,.82) 45%,rgba(7,7,15,.62) 100%)}
 .hero-grid-line{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black 30%,transparent 100%)}
 .orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
 .o1{width:600px;height:600px;background:rgba(0,113,227,.13);top:-150px;left:-100px;animation:obf 14s ease-in-out infinite}
 .o2{width:400px;height:400px;background:rgba(41,151,255,.09);bottom:-100px;right:-50px;animation:obf 18s ease-in-out infinite reverse}
 .o3{width:280px;height:280px;background:rgba(48,209,88,.06);top:40%;left:55%;animation:obf 11s ease-in-out infinite 2s}
 @keyframes obf{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,-40px)}}
+
 .hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.hero-left{}
 .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(41,151,255,.1);border:1px solid rgba(41,151,255,.28);padding:7px 18px;border-radius:100px;font-size:.78rem;color:var(--bluel);font-weight:600;margin-bottom:28px;animation:fdwn .9s ease both}
 .bdot{width:7px;height:7px;border-radius:50%;background:var(--bluel);box-shadow:0 0 8px var(--bluel);animation:pulse 2s infinite}
 @keyframes fdwn{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.7)}}
 .hero-h1{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,5.5vw,5.5rem);font-weight:800;letter-spacing:-.04em;line-height:.98;margin-bottom:24px;animation:fup .9s .15s ease both}
-.hero-h1 .shim{background:linear-gradient(90deg,var(--bluel),#e8e8ed 40%,var(--bluel) 80%);background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shim 4s linear infinite,fup .9s .15s ease both}
+.hero-h1 .shim{background:linear-gradient(90deg,var(--bluel),#e8e8ed 40%,var(--bluel) 80%);background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shim 4s linear infinite}
 @keyframes shim{0%{background-position:0%}100%{background-position:200%}}
 @keyframes fup{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 .hero-p{font-size:1.1rem;color:var(--dim);line-height:1.78;font-weight:300;margin-bottom:36px;animation:fup .9s .3s ease both;max-width:480px}
@@ -115,7 +117,7 @@ section{position:relative;z-index:1}
 .htrust-item{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--dim);font-weight:500}
 .htrust-icon{width:28px;height:28px;background:rgba(41,151,255,.12);border:1px solid rgba(41,151,255,.25);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
 
-/* HERO RIGHT - IMAGE STACK */
+/* HERO RIGHT — IMAGE CAROUSEL STACK */
 .hero-right{position:relative;height:560px;animation:fup .9s .3s ease both}
 .img-stack{position:relative;width:100%;height:100%}
 .img-card{position:absolute;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.1);box-shadow:0 30px 80px rgba(0,0,0,.6)}
@@ -132,6 +134,11 @@ section{position:relative;z-index:1}
 .fc2{top:38%;left:-12%;animation:flt 7s ease-in-out infinite 1.5s}
 .chip-dot{width:8px;height:8px;border-radius:50%}
 
+/* SLIDESHOW DOTS */
+.slide-dots{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:8px}
+.sd{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.3);transition:all .35s;cursor:pointer}
+.sd.active{background:var(--bluel);width:22px;border-radius:4px}
+
 /* STATS BAR */
 .stats-bar{background:var(--s1);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:40px 64px}
 .stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
@@ -145,14 +152,13 @@ section{position:relative;z-index:1}
 .marquee-track{display:flex;gap:0;animation:mq 30s linear infinite;width:max-content}
 .mq-item{display:flex;align-items:center;gap:10px;font-size:.82rem;font-weight:500;color:var(--dim);white-space:nowrap;padding:0 28px;border-right:1px solid var(--border)}
 .mq-item em{font-style:normal;font-size:1rem}
+@keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* ── SERVICES ── */
+/* SERVICES */
 .services-section{padding:120px 64px}
 .services-wrap{max-width:1200px;margin:0 auto}
 .svc-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;margin-bottom:60px}
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-
-/* Featured card spans 2 rows */
 .svc-card{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:all .35s;position:relative;display:flex;flex-direction:column}
 .svc-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(41,151,255,.09),transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none;z-index:1}
 .svc-card:hover::before{opacity:1}
@@ -176,7 +182,7 @@ section{position:relative;z-index:1}
 .svc-arrow{margin-top:20px;display:inline-flex;align-items:center;gap:6px;font-size:.85rem;font-weight:600;color:var(--bluel);transition:gap .2s}
 .svc-card:hover .svc-arrow{gap:10px}
 
-/* ── DEVICES SECTION ── */
+/* DEVICES */
 .devices-section{padding:110px 64px;background:var(--s1);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .devices-inner{max-width:1200px;margin:0 auto}
 .devices-header{text-align:center;margin-bottom:72px}
@@ -204,7 +210,7 @@ section{position:relative;z-index:1}
 .dev-chips{display:flex;flex-wrap:wrap;gap:8px}
 .dev-chip{background:rgba(41,151,255,.1);border:1px solid rgba(41,151,255,.22);color:var(--bluel);font-size:.75rem;font-weight:600;padding:5px 13px;border-radius:100px;letter-spacing:.04em}
 
-/* ── APPLE SPECIALIST ── */
+/* APPLE SPECIALIST */
 .apple-section{padding:110px 64px;overflow:hidden}
 .apple-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
 .apple-img-col{position:relative}
@@ -220,7 +226,7 @@ section{position:relative;z-index:1}
 .apr-item:hover{border-color:var(--bh);background:rgba(41,151,255,.05);transform:translateX(4px)}
 .apr-icon{font-size:1.3rem;width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:var(--s2);border-radius:10px;flex-shrink:0}
 
-/* ── HOW IT WORKS ── */
+/* HOW IT WORKS */
 .how-section{padding:120px 64px;background:var(--s1);border-top:1px solid var(--border)}
 .how-inner{max-width:1200px;margin:0 auto}
 .how-head{text-align:center;margin-bottom:80px}
@@ -233,7 +239,6 @@ section{position:relative;z-index:1}
 .step-emoji{font-size:2rem;display:block;margin-bottom:14px}
 .step h3{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:10px}
 .step p{font-size:.88rem;color:var(--dim);font-weight:300;line-height:1.68}
-/* Process image strip */
 .how-imgs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .how-img-card{border-radius:18px;overflow:hidden;height:220px;position:relative}
 .how-img-card img{object-position:center;transition:transform .5s}
@@ -241,7 +246,7 @@ section{position:relative;z-index:1}
 .how-img-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(7,7,15,.9) 0%,transparent 50%)}
 .how-img-label{position:absolute;bottom:16px;left:16px;font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;z-index:1}
 
-/* ── TRUST / WHY US ── */
+/* WHY US */
 .why-section{padding:90px 64px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .why-inner{max-width:1200px;margin:0 auto}
 .why-head{text-align:center;margin-bottom:60px}
@@ -253,7 +258,7 @@ section{position:relative;z-index:1}
 .why-card h4{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:10px}
 .why-card p{font-size:.87rem;color:var(--dim);line-height:1.65;font-weight:300}
 
-/* ── BEFORE/AFTER ── */
+/* BEFORE/AFTER */
 .ba-section{padding:100px 64px;background:var(--s1);border-bottom:1px solid var(--border)}
 .ba-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .ba-text .sub{margin-bottom:32px}
@@ -270,7 +275,7 @@ section{position:relative;z-index:1}
 .ba-img-label{position:absolute;bottom:14px;left:14px;font-size:.78rem;font-weight:700;z-index:1;display:flex;align-items:center;gap:6px}
 .ba-label-dot{width:8px;height:8px;border-radius:50%}
 
-/* ── PRICING ── */
+/* PRICING */
 .pricing-section{padding:120px 64px}
 .pricing-inner{max-width:1200px;margin:0 auto}
 .pricing-head{text-align:center;margin-bottom:56px}
@@ -293,7 +298,7 @@ section{position:relative;z-index:1}
 .p-feats li:last-child{border-bottom:none}
 .p-feats li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0}
 
-/* ── REVIEWS ── */
+/* REVIEWS */
 .reviews-section{padding:120px 64px;background:var(--s1);border-top:1px solid var(--border)}
 .reviews-inner{max-width:1200px;margin:0 auto}
 .reviews-head{text-align:center;margin-bottom:60px}
@@ -320,7 +325,7 @@ section{position:relative;z-index:1}
 .rev-name{font-size:.88rem;font-weight:600}
 .rev-loc{font-size:.76rem;color:var(--dim)}
 
-/* ── GALLERY ── */
+/* GALLERY */
 .gallery-section{padding:90px 64px}
 .gallery-inner{max-width:1200px;margin:0 auto}
 .gallery-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;flex-wrap:wrap;gap:20px}
@@ -333,7 +338,7 @@ section{position:relative;z-index:1}
 .g-item.big{grid-column:span 2;grid-row:span 2}
 .g-item.tall{grid-row:span 2}
 
-/* ── FAQ ── */
+/* FAQ */
 .faq-section{padding:100px 64px;background:var(--s1);border-top:1px solid var(--border)}
 .faq-inner{max-width:900px;margin:0 auto}
 .faq-head{text-align:center;margin-bottom:60px}
@@ -347,7 +352,7 @@ section{position:relative;z-index:1}
 .faq-item.open .faq-a{max-height:400px;padding-bottom:22px}
 .faq-a p{font-size:.92rem;color:var(--dim);line-height:1.78;font-weight:300}
 
-/* ── CTA BANNER ── */
+/* CTA */
 .cta-section{padding:130px 64px;text-align:center;overflow:hidden;position:relative}
 .cta-bg{position:absolute;inset:0;z-index:0}
 .cta-bg img{filter:brightness(.1) saturate(1.5)}
@@ -357,7 +362,7 @@ section{position:relative;z-index:1}
 .cta-section p{color:var(--dim);font-size:1.1rem;max-width:520px;margin:0 auto 44px;font-weight:300;line-height:1.75}
 .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 
-/* ── CONTACT ── */
+/* CONTACT */
 .contact-section{padding:110px 64px;background:var(--s1);border-top:1px solid var(--border)}
 .contact-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:start}
 .contact-info .sub{margin-bottom:36px}
@@ -379,7 +384,7 @@ section{position:relative;z-index:1}
 .fg textarea{resize:vertical;min-height:110px}
 .fg select option{background:#0d0d1a}
 
-/* ── FOOTER ── */
+/* FOOTER */
 footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
 .footer-top{max-width:1200px;margin:0 auto 56px;display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:56px}
 .footer-brand .logo{margin-bottom:18px}
@@ -396,10 +401,12 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
 .soc-btn{width:38px;height:38px;background:var(--s2);border:1px solid var(--border);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:all .25s;cursor:pointer}
 .soc-btn:hover{border-color:var(--bh);background:rgba(41,151,255,.1);transform:translateY(-2px)}
 
-/* ── ANIMATIONS ── */
+/* ANIMATIONS */
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* ── RESPONSIVE ── */
+/* ═══════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════ */
 @media(max-width:1100px){
   nav,nav.sc{padding:18px 32px}
   .hero{padding:110px 32px 80px}
@@ -421,7 +428,7 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
   .step{margin-bottom:44px}
   .how-imgs{grid-template-columns:1fr 1fr}
   .why-grid{grid-template-columns:repeat(2,1fr)}
-  .ba-section .ba-inner{grid-template-columns:1fr}
+  .ba-inner{grid-template-columns:1fr}
   .p-cards{grid-template-columns:1fr;max-width:420px;margin:0 auto}
   .rev-grid{columns:2}
   .gallery-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:auto}
@@ -429,6 +436,7 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
   .g-item.tall{grid-row:auto}
   .contact-inner{grid-template-columns:1fr}
   .footer-top{grid-template-columns:1fr 1fr;gap:40px}
+  .panel-img{width:220px}
 }
 @media(max-width:768px){
   nav,nav.sc{padding:15px 20px}
@@ -471,6 +479,7 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
   .hero-trust{gap:14px}
   .cta-section{padding-top:80px;padding-bottom:80px}
   .cta-section h2{font-size:2.2rem}
+  .panel-img{width:160px}
 }
 @media(max-width:480px){
   .hero-h1{font-size:2.1rem}
@@ -480,6 +489,7 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
   .dev-specs{grid-template-columns:1fr 1fr}
   .hero-actions{flex-direction:column;align-items:stretch}
   .btn-p,.btn-s{justify-content:center}
+  .panel-img{width:130px}
 }
 </style>
 </head>
@@ -522,23 +532,65 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
   </div>
 </nav>
 
-<!-- ══════════ HERO ══════════ -->
+<!-- ═══ HERO ═══ -->
 <section class="hero">
-  <div class="hero-bg">
-    <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=1920&q=80" alt="Tech repair workshop">
+
+  <!-- SIDE-BY-SIDE AUTO-SCROLL BACKGROUND PANELS -->
+  <div class="hero-panels" style="position:absolute;inset:0;z-index:0;display:flex;flex-direction:column;overflow:hidden;gap:3px">
+    <!-- Row 1 — scrolls LEFT -->
+    <div style="flex:1;overflow:hidden;display:flex">
+      <div class="panel-strip" id="strip1">
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=700&q=70" alt=""></div>
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=700&q=70" alt=""></div>
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=700&q=70" alt=""></div>
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=700&q=70" alt=""></div>
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=700&q=70" alt=""></div>
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&q=70" alt=""></div>
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=700&q=70" alt=""></div>
+        <!-- duplicate for seamless loop -->
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=700&q=70" alt=""></div>
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=700&q=70" alt=""></div>
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=700&q=70" alt=""></div>
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=700&q=70" alt=""></div>
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=700&q=70" alt=""></div>
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&q=70" alt=""></div>
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=700&q=70" alt=""></div>
+      </div>
+    </div>
+    <!-- Row 2 — scrolls RIGHT (reverse) -->
+    <div style="flex:1;overflow:hidden;display:flex">
+      <div class="panel-strip rev" id="strip2">
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1563770660941-20978e870e26?w=700&q=70" alt=""></div>
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&q=70" alt=""></div>
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=700&q=70" alt=""></div>
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?w=700&q=70" alt=""></div>
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=700&q=70" alt=""></div>
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=700&q=70" alt=""></div>
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1611186871525-fd9bcf9e50b2?w=700&q=70" alt=""></div>
+        <!-- duplicate -->
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1563770660941-20978e870e26?w=700&q=70" alt=""></div>
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&q=70" alt=""></div>
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=700&q=70" alt=""></div>
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?w=700&q=70" alt=""></div>
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=700&q=70" alt=""></div>
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=700&q=70" alt=""></div>
+        <div class="panel-img" style="height:100%"><img src="https://images.unsplash.com/photo-1611186871525-fd9bcf9e50b2?w=700&q=70" alt=""></div>
+      </div>
+    </div>
   </div>
-  <div class="hero-overlay"></div>
+
+  <div class="hero-dark-overlay"></div>
   <div class="hero-grid-line"></div>
   <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
 
   <div class="hero-inner">
     <div class="hero-left">
-      <div class="badge"><div class="bdot"></div> Mumbai's #1 Apple Device Specialists — Since 2017</div>
+      <div class="badge"><div class="bdot"></div> Kolkata's #1 Apple Device Specialists — Since 2017</div>
       <h1 class="hero-h1">
         Exchange. Repair.<br>
         <span class="shim">Upgrade Smarter.</span>
       </h1>
-      <p class="hero-p">Your one-stop destination for iPhone, iPad &amp; MacBook repair, exchange, and premium Apple device services. Genuine parts, same-day service, and a 6-month warranty — all in Mumbai.</p>
+      <p class="hero-p">Your one-stop destination for iPhone, iPad &amp; MacBook repair, exchange, and premium Apple device services. Genuine parts, same-day service, and a 6-month warranty — all in Kolkata.</p>
       <div class="hero-actions">
         <button class="btn-p" onclick="scrollTo('services')">Explore Services →</button>
         <button class="btn-s" onclick="scrollTo('contact')">Get Free Estimate</button>
@@ -554,7 +606,7 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
     <div class="hero-right">
       <div class="img-stack">
         <div class="img-card main">
-          <img src="https://www.lifewire.com/thmb/3KSvCQ8NC6EF19Uj_ZvYedc1JJk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-472354892-250ac978fedb41c98d9e3c9c64c60b0c.jpg" alt="iPhone repair technician">
+          <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=800&q=80" alt="iPhone repair technician">
           <div class="img-badge">
             <div class="ibadge-icon">🔧</div>
             <div>
@@ -564,7 +616,7 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
           </div>
         </div>
         <div class="img-card side1">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRePAEMBPyYGHIJ8TMRmvIF5muAE0XpSq3Wzw&s" alt="MacBook repair">
+          <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&q=80" alt="MacBook repair">
           <div class="img-badge">
             <div class="ibadge-icon">💻</div>
             <div>
@@ -629,7 +681,7 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
   </div>
 </div>
 
-<!-- ══════════ SERVICES ══════════ -->
+<!-- SERVICES -->
 <section class="services-section" id="services">
   <div class="services-wrap">
     <div class="svc-head">
@@ -640,112 +692,98 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
       <p class="sub" style="margin-bottom:0">From quick screen fixes to full device exchanges — we handle every stage of your Apple tech lifecycle with precision and care.</p>
     </div>
     <div class="svc-grid">
-
-      <!-- Featured: Exchange -->
       <div class="svc-card feat rv">
         <div class="svc-img">
-          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80" alt="Device exchange service">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80" alt="Device exchange">
           <div class="svc-img-overlay"></div>
           <div class="svc-img-tag">⭐ Most Popular</div>
         </div>
         <div class="svc-body">
           <div class="svc-icon-row">
             <div class="svc-icon" style="background:rgba(0,113,227,.15)">🔄</div>
-            <span class="svc-tag" style="background:rgba(41,151,255,.12);color:var(--bluel)">All Brands</span>
+            <span class="svc-tag" style="background:rgba(0,113,227,.15);color:var(--bluel)">Exchange</span>
           </div>
           <h3>Device Exchange Program</h3>
-          <p>Trade in your old iPhone, iPad, MacBook, laptop, smartphone, tablet, smartwatch, or any electronic device for instant cash or upgrade credit, as we accept all brands and all conditions—including cracked, damaged, faulty, dead, locked, water-damaged, and non-working devices—while offering free device evaluation, transparent pricing, Mumbai's best market valuations, hassle-free doorstep service, secure data handling, same-day pickup, instant payment, and a quick, reliable process that helps you unlock the maximum value from your unused gadgets without any hidden charges or delays.
-.</p>
-<p>Sell your old iPhone, Samsung, OnePlus, MacBook, laptop, tablet, or any used gadget today and get the best resale value in Mumbai with instant cash payments, same-day pickup, free doorstep inspection, secure data protection, and guaranteed acceptance of devices in any condition, whether they are brand new, heavily used, cracked, damaged, faulty, dead, or water-affected.</p>
-
+          <p>Trade your old iPhone, iPad, MacBook, or any device for instant cash or credit toward a new one. We offer Kolkata's best exchange prices — guaranteed 15% above market rate.</p>
           <ul class="svc-list">
-            <li>iPhone, Samsung, OnePlus, Pixel &amp; more</li>
-            <li>MacBook, Dell, HP, Lenovo, Asus laptops</li>
-            <li>All conditions accepted — cracked to dead</li>
-            <li>Instant cash or bank transfer payment</li>
-            <li>Free evaluation — no obligation to sell</li>
+            <li>All brands & all conditions accepted</li>
+            <li>Instant cash or bank transfer</li>
+            <li>Same-day evaluation & settlement</li>
+            <li>Free — no obligation to sell</li>
+            <li>Bulk & corporate pricing available</li>
           </ul>
           <span class="svc-arrow">Start Exchange →</span>
         </div>
       </div>
-
-      <!-- iPhone Repair -->
       <div class="svc-card rv d1">
         <div class="svc-img">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnLiMrjtrp2e1mLWAvGh_fW1dIi1KWbJ9aSg&s" alt="iPhone screen repair">
+          <img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=600&q=80" alt="iPhone repair">
           <div class="svc-img-overlay"></div>
-          <div class="svc-img-tag">⚡ Same Day</div>
+          <div class="svc-img-tag">📱 iPhone</div>
         </div>
         <div class="svc-body">
           <div class="svc-icon-row">
-            <div class="svc-icon" style="background:rgba(240,192,64,.12)">📱</div>
-            <span class="svc-tag" style="background:rgba(240,192,64,.12);color:var(--gold)">Genuine Parts</span>
+            <div class="svc-icon" style="background:rgba(48,209,88,.15)">🔧</div>
+            <span class="svc-tag" style="background:rgba(48,209,88,.15);color:var(--green)">Repair</span>
           </div>
           <h3>iPhone Repair</h3>
-          <p>Cracked screens, battery drain, charging issues, Face ID failure, speaker problems, water damage — our certified Apple technicians repair every iPhone model from iPhone 6 to iPhone 16 Pro Max using 100% genuine OEM Apple parts.</p>
-          <span class="svc-arrow">Book Repair →</span>
+          <p>Screen, battery, charging port, camera, water damage — certified repair for every iPhone model with genuine Apple parts and 6-month warranty.</p>
+          <span class="svc-arrow">Explore →</span>
         </div>
       </div>
-
-      <!-- iPad Repair -->
       <div class="svc-card rv d2">
         <div class="svc-img">
-          <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=700&q=80" alt="iPad repair">
+          <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&q=80" alt="MacBook">
           <div class="svc-img-overlay"></div>
-          <div class="svc-img-tag">🛡️ Warranted</div>
+          <div class="svc-img-tag">💻 MacBook</div>
         </div>
         <div class="svc-body">
           <div class="svc-icon-row">
-            <div class="svc-icon" style="background:rgba(48,209,88,.12)">📲</div>
-            <span class="svc-tag" style="background:rgba(48,209,88,.12);color:var(--green)">All Models</span>
+            <div class="svc-icon" style="background:rgba(191,90,242,.15)">💻</div>
+            <span class="svc-tag" style="background:rgba(191,90,242,.15);color:var(--purple)">Specialist</span>
           </div>
-          <h3>iPad Repair &amp; Service</h3>
-          <p>iPad Mini, Air, standard, and Pro models — screen replacements, charging port fixes, battery service, camera repair, and Apple Pencil compatibility restoration. All backed by our 6-month warranty.</p>
-          <span class="svc-arrow">Book iPad Service →</span>
+          <h3>MacBook Repair</h3>
+          <p>Logic board, keyboard, screen, SSD upgrade, liquid damage recovery. Kolkata's best equipped Mac lab with Apple Silicon expertise.</p>
+          <span class="svc-arrow">Explore →</span>
         </div>
       </div>
-
-      <!-- MacBook Repair -->
       <div class="svc-card rv d1">
         <div class="svc-img">
-          <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=700&q=80" alt="MacBook repair">
+          <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&q=80" alt="iPad">
           <div class="svc-img-overlay"></div>
-          <div class="svc-img-tag">🧑‍💻 Expert Care</div>
+          <div class="svc-img-tag">📲 iPad</div>
         </div>
         <div class="svc-body">
           <div class="svc-icon-row">
-            <div class="svc-icon" style="background:rgba(191,90,242,.12)">💻</div>
-            <span class="svc-tag" style="background:rgba(191,90,242,.12);color:var(--purple)">M1–M4 Chips</span>
+            <div class="svc-icon" style="background:rgba(245,197,66,.15)">📲</div>
+            <span class="svc-tag" style="background:rgba(245,197,66,.15);color:var(--gold)">iPad</span>
           </div>
-          <h3>MacBook Repair &amp; Upgrade</h3>
-          <p>MacBook Air and MacBook Pro — Intel to M4 chip generations. Logic board repair, screen replacement, keyboard swap, SSD upgrades, thermal paste renewal, and liquid damage recovery. Mumbai's most advanced MacBook lab.</p>
-          <span class="svc-arrow">Book MacBook Service →</span>
+          <h3>iPad Repair &amp; Service</h3>
+          <p>From iPad Pro M4 to older models — screen replacements, battery service, charging port repairs and trade-ins. All generations covered.</p>
+          <span class="svc-arrow">Explore →</span>
         </div>
       </div>
-
-      <!-- Data Recovery -->
       <div class="svc-card rv d2">
         <div class="svc-img">
-          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=700&q=80" alt="Data recovery">
+          <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=600&q=80" alt="Data recovery">
           <div class="svc-img-overlay"></div>
-          <div class="svc-img-tag">💾 High Success</div>
+          <div class="svc-img-tag">💾 Recovery</div>
         </div>
         <div class="svc-body">
           <div class="svc-icon-row">
-            <div class="svc-icon" style="background:rgba(255,69,58,.12)">🔓</div>
-            <span class="svc-tag" style="background:rgba(255,69,58,.12);color:var(--red)">95% Success Rate</span>
+            <div class="svc-icon" style="background:rgba(255,159,10,.15)">💾</div>
+            <span class="svc-tag" style="background:rgba(255,159,10,.15);color:var(--orange)">Data</span>
           </div>
           <h3>Data Recovery</h3>
-          <p>Lost photos, contacts, documents from a dead, cracked, or flooded device? Our recovery lab rescues data from iPhones, iPads, MacBooks, and external drives with a 95% success rate. Confidential &amp; secure process.</p>
-          <span class="svc-arrow">Recover My Data →</span>
+          <p>Recover data from dead, water-damaged, or broken iPhones, iPads, and MacBooks. Signed NDA available for sensitive data. No data — no fee.</p>
+          <span class="svc-arrow">Explore →</span>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ══════════ DEVICES DEEP DIVE ══════════ -->
+<!-- DEVICES -->
 <section class="devices-section" id="devices">
   <div class="devices-inner">
     <div class="devices-header rv">
@@ -758,24 +796,16 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
       <button class="dev-tab" onclick="switchDev('ipad')">📲 iPad</button>
       <button class="dev-tab" onclick="switchDev('macbook')">💻 MacBook</button>
     </div>
-
-    <!-- iPhone -->
     <div class="dev-content active" id="dev-iphone">
       <div class="dev-img-wrap rv">
-        <img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=900&q=80" alt="iPhone repair close-up">
-        <div class="dev-img-badge">
-          <div class="dib-label">Starting From</div>
-          <div class="dib-value">₹499</div>
-        </div>
-        <div class="dev-img-stat">
-          <div class="dib-label">Avg Repair Time</div>
-          <div class="dib-value">60–90 min</div>
-        </div>
+        <img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=900&q=80" alt="iPhone repair">
+        <div class="dev-img-badge"><div class="dib-label">Starting From</div><div class="dib-value">₹499</div></div>
+        <div class="dev-img-stat"><div class="dib-label">Avg Repair Time</div><div class="dib-value">60–90 min</div></div>
       </div>
       <div class="dev-info rv d2">
         <div class="section-label">iPhone Specialist</div>
         <h3>Every iPhone,<br>Perfectly Repaired.</h3>
-        <p>From iPhone 6 to the latest iPhone 16 Pro Max, our Apple-trained technicians handle every issue with precision and speed. We use 100% genuine OEM Apple parts — no cheap third-party components. Your iPhone leaves our lab as good as new, backed by our industry-leading warranty.</p>
+        <p>From iPhone 6 to the latest iPhone 16 Pro Max, our Apple-trained technicians handle every issue with precision and speed. We use 100% genuine OEM Apple parts.</p>
         <div class="dev-specs">
           <div class="dev-spec"><div class="dspec-l">Screen Replacement</div><div class="dspec-v">from ₹1,499</div></div>
           <div class="dev-spec"><div class="dspec-l">Battery Replacement</div><div class="dspec-v">from ₹899</div></div>
@@ -785,33 +815,22 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
           <div class="dev-spec"><div class="dspec-l">Data Recovery</div><div class="dspec-v">from ₹2,499</div></div>
         </div>
         <div class="dev-chips">
-          <span class="dev-chip">iPhone 16 Pro Max</span>
-          <span class="dev-chip">iPhone 15 Series</span>
-          <span class="dev-chip">iPhone 14 Series</span>
-          <span class="dev-chip">iPhone 13 Series</span>
-          <span class="dev-chip">iPhone 12 &amp; Below</span>
-          <span class="dev-chip">All SE Models</span>
+          <span class="dev-chip">iPhone 16 Pro Max</span><span class="dev-chip">iPhone 15 Series</span>
+          <span class="dev-chip">iPhone 14 Series</span><span class="dev-chip">iPhone 13 Series</span>
+          <span class="dev-chip">iPhone 12 &amp; Below</span><span class="dev-chip">All SE Models</span>
         </div>
       </div>
     </div>
-
-    <!-- iPad -->
     <div class="dev-content" id="dev-ipad">
       <div class="dev-img-wrap rv">
         <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=900&q=80" alt="iPad repair">
-        <div class="dev-img-badge">
-          <div class="dib-label">Starting From</div>
-          <div class="dib-value">₹799</div>
-        </div>
-        <div class="dev-img-stat">
-          <div class="dib-label">Avg Repair Time</div>
-          <div class="dib-value">2–4 hours</div>
-        </div>
+        <div class="dev-img-badge"><div class="dib-label">Starting From</div><div class="dib-value">₹799</div></div>
+        <div class="dev-img-stat"><div class="dib-label">Avg Repair Time</div><div class="dib-value">2–4 hours</div></div>
       </div>
       <div class="dev-info rv d2">
         <div class="section-label">iPad Specialist</div>
         <h3>iPad Repair &amp;<br>Exchange Experts.</h3>
-        <p>Whether it's a shattered iPad Pro screen or a dead charging port on an older iPad Mini, our technicians restore your iPad to perfect working condition. We support all generations of iPad — including the latest M4 iPad Pro — with genuine Apple display assemblies and components.</p>
+        <p>Whether it's a shattered iPad Pro screen or a dead charging port on an older iPad Mini, our technicians restore your iPad perfectly. All generations supported.</p>
         <div class="dev-specs">
           <div class="dev-spec"><div class="dspec-l">Screen Replacement</div><div class="dspec-v">from ₹2,499</div></div>
           <div class="dev-spec"><div class="dspec-l">Battery Replacement</div><div class="dspec-v">from ₹1,299</div></div>
@@ -821,32 +840,21 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
           <div class="dev-spec"><div class="dspec-l">Trade-In Value</div><div class="dspec-v">Up to ₹40,000</div></div>
         </div>
         <div class="dev-chips">
-          <span class="dev-chip">iPad Pro M4</span>
-          <span class="dev-chip">iPad Air M2</span>
-          <span class="dev-chip">iPad Mini 7</span>
-          <span class="dev-chip">iPad 10th Gen</span>
-          <span class="dev-chip">All Older iPads</span>
+          <span class="dev-chip">iPad Pro M4</span><span class="dev-chip">iPad Air M2</span>
+          <span class="dev-chip">iPad Mini 7</span><span class="dev-chip">iPad 10th Gen</span><span class="dev-chip">All Older iPads</span>
         </div>
       </div>
     </div>
-
-    <!-- MacBook -->
     <div class="dev-content" id="dev-macbook">
       <div class="dev-img-wrap rv">
         <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=900&q=80" alt="MacBook repair">
-        <div class="dev-img-badge">
-          <div class="dib-label">Starting From</div>
-          <div class="dib-value">₹799</div>
-        </div>
-        <div class="dev-img-stat">
-          <div class="dib-label">Trade-In Value</div>
-          <div class="dib-value">Up to ₹1.2L</div>
-        </div>
+        <div class="dev-img-badge"><div class="dib-label">Starting From</div><div class="dib-value">₹799</div></div>
+        <div class="dev-img-stat"><div class="dib-label">Trade-In Value</div><div class="dib-value">Up to ₹1.2L</div></div>
       </div>
       <div class="dev-info rv d2">
         <div class="section-label">MacBook Specialist</div>
-        <h3>Mumbai's Best<br>MacBook Lab.</h3>
-        <p>Our MacBook repair lab is equipped with specialized tools for Apple Silicon and Intel machines. From replacing a defective keyboard on a MacBook Air to recovering a liquid-damaged MacBook Pro logic board — we handle it all with surgical precision. NVMe SSD upgrades available for older Intel models.</p>
+        <h3>Kolkata's Best<br>MacBook Lab.</h3>
+        <p>Our MacBook repair lab is equipped with specialized tools for Apple Silicon and Intel machines. From logic board recovery to SSD upgrades — handled with surgical precision.</p>
         <div class="dev-specs">
           <div class="dev-spec"><div class="dspec-l">Screen Replacement</div><div class="dspec-v">from ₹5,999</div></div>
           <div class="dev-spec"><div class="dspec-l">Battery Replacement</div><div class="dspec-v">from ₹3,499</div></div>
@@ -856,29 +864,26 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
           <div class="dev-spec"><div class="dspec-l">Liquid Damage</div><div class="dspec-v">from ₹4,999</div></div>
         </div>
         <div class="dev-chips">
-          <span class="dev-chip">MacBook Air M3</span>
-          <span class="dev-chip">MacBook Pro M3</span>
-          <span class="dev-chip">MacBook Air M2</span>
-          <span class="dev-chip">MacBook Pro M1</span>
-          <span class="dev-chip">Intel MacBooks</span>
-          <span class="dev-chip">All Generations</span>
+          <span class="dev-chip">MacBook Air M3</span><span class="dev-chip">MacBook Pro M3</span>
+          <span class="dev-chip">MacBook Air M2</span><span class="dev-chip">MacBook Pro M1</span>
+          <span class="dev-chip">Intel MacBooks</span><span class="dev-chip">All Generations</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════ APPLE SPECIALIST ══════════ -->
+<!-- APPLE SPECIALIST -->
 <section class="apple-section" id="apple">
   <div class="apple-inner">
     <div class="apple-img-col rv">
       <div class="apple-main-img">
-        <img src="https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=900&q=80" alt="Apple products specialist">
+        <img src="https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=900&q=80" alt="Apple specialist">
       </div>
       <div class="apple-float-card afc1">
         <div class="afc-label">Devices Repaired Today</div>
         <div class="afc-value" id="liveCount">24</div>
-        <div class="afc-sub">Mumbai's busiest Apple service center</div>
+        <div class="afc-sub">Kolkata's busiest Apple service center</div>
       </div>
       <div class="apple-float-card afc2">
         <div class="afc-label">Average Turnaround</div>
@@ -889,7 +894,7 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
     <div class="rv d2">
       <div class="section-label">Apple Specialists</div>
       <h2 class="title">We Speak<br>Fluent Apple.</h2>
-      <p class="sub">From the latest iPhone 16 to vintage MacBooks from 2015, our certified technicians are trained in the complete Apple ecosystem. Every repair uses genuine Apple components. Every exchange gets the best market price. Every customer leaves satisfied — guaranteed.</p>
+      <p class="sub">From the latest iPhone 16 to vintage MacBooks from 2015, our certified technicians are trained in the complete Apple ecosystem. Every repair uses genuine Apple components. Every exchange gets the best market price.</p>
       <div class="apple-prod-grid">
         <div class="apr-item"><div class="apr-icon">📱</div> iPhone (All Models)</div>
         <div class="apr-item"><div class="apr-icon">💻</div> MacBook Pro / Air</div>
@@ -903,7 +908,7 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
   </div>
 </section>
 
-<!-- ══════════ HOW IT WORKS ══════════ -->
+<!-- HOW IT WORKS -->
 <section class="how-section" id="how">
   <div class="how-inner">
     <div class="how-head rv">
@@ -912,162 +917,73 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
       <p class="sub">Transparent, fast, and hassle-free — from first contact to picking up your restored device.</p>
     </div>
     <div class="steps-row">
-      <div class="step rv">
-        <span class="step-emoji">📞</span>
-        <div class="step-num">01</div>
-        <h3>Contact Us</h3>
-        <p>Call, WhatsApp, or fill out our form. Describe your device issue or exchange interest. Our team responds within minutes — even on weekends.</p>
-      </div>
-      <div class="step rv d1">
-        <span class="step-emoji">🔍</span>
-        <div class="step-num">02</div>
-        <h3>Free Diagnosis</h3>
-        <p>Bring your device for a free, thorough, no-obligation diagnosis. We identify every issue and provide a clear, upfront quote. No surprises, no hidden fees — ever.</p>
-      </div>
-      <div class="step rv d2">
-        <span class="step-emoji">⚡</span>
-        <div class="step-num">03</div>
-        <h3>Expert Repair</h3>
-        <p>Our certified technicians get to work immediately using only genuine Apple parts. Most repairs are done in under 2 hours while you wait or browse nearby.</p>
-      </div>
-      <div class="step rv d3">
-        <span class="step-emoji">✅</span>
-        <div class="step-num">04</div>
-        <h3>Pick Up &amp; Pay</h3>
-        <p>Collect your device fully restored and quality-checked. Pay only when you're 100% satisfied. Every repair comes with our written warranty certificate.</p>
-      </div>
+      <div class="step rv"><span class="step-emoji">📞</span><div class="step-num">01</div><h3>Contact Us</h3><p>Call, WhatsApp, or fill our form. Our team responds within minutes — even on weekends.</p></div>
+      <div class="step rv d1"><span class="step-emoji">🔍</span><div class="step-num">02</div><h3>Free Diagnosis</h3><p>Bring your device for a free, no-obligation diagnosis. Clear upfront quote — no surprises, no hidden fees.</p></div>
+      <div class="step rv d2"><span class="step-emoji">⚡</span><div class="step-num">03</div><h3>Expert Repair</h3><p>Our certified technicians use only genuine Apple parts. Most repairs done in under 2 hours.</p></div>
+      <div class="step rv d3"><span class="step-emoji">✅</span><div class="step-num">04</div><h3>Pick Up &amp; Pay</h3><p>Collect your device fully restored. Pay only when you're 100% satisfied. Written warranty certificate included.</p></div>
     </div>
     <div class="how-imgs rv">
-      <div class="how-img-card">
-        <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=700&q=80" alt="Technician at work">
-        <div class="how-img-label">Our Certified Lab</div>
-      </div>
-      <div class="how-img-card">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&q=80" alt="Circuit board repair">
-        <div class="how-img-label">Precision Tools</div>
-      </div>
-      <div class="how-img-card">
-        <img src="https://images.unsplash.com/photo-1556742400-b5b7b512e4b6?w=700&q=80" alt="Happy customer">
-        <div class="how-img-label">Happy Customers</div>
-      </div>
+      <div class="how-img-card"><img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=700&q=80" alt="Lab"><div class="how-img-label">Our Certified Lab</div></div>
+      <div class="how-img-card"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&q=80" alt="Tools"><div class="how-img-label">Precision Tools</div></div>
+      <div class="how-img-card"><img src="https://images.unsplash.com/photo-1556742400-b5b7b512e4b6?w=700&q=80" alt="Happy customer"><div class="how-img-label">Happy Customers</div></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════ WHY US ══════════ -->
+<!-- WHY US -->
 <section class="why-section">
   <div class="why-inner">
     <div class="why-head rv">
       <div class="section-label">Why TechXchange</div>
-      <h2 class="title">Mumbai's Most Trusted<br>Tech Service Center</h2>
-      <p class="sub">7 years of serving Mumbai's tech community. Here's what makes us different.</p>
+      <h2 class="title">Kolkata's Most Trusted<br>Tech Service Center</h2>
+      <p class="sub">7 years of serving Kolkata's tech community. Here's what makes us different.</p>
     </div>
     <div class="why-grid">
-      <div class="why-card rv">
-        <span class="why-icon">🛡️</span>
-        <h4>100% Genuine Apple Parts</h4>
-        <p>Every screen, battery, and component we use is sourced directly from Apple's supply chain. No refurbished, no knock-offs — ever. Your device deserves the real thing.</p>
-      </div>
-      <div class="why-card rv d1">
-        <span class="why-icon">⚡</span>
-        <h4>Same-Day Service</h4>
-        <p>Most iPhone and iPad repairs are completed in under 90 minutes. MacBook repairs typically done within 4 hours. We've designed our workflow around getting your life back on track fast.</p>
-      </div>
-      <div class="why-card rv d2">
-        <span class="why-icon">💰</span>
-        <h4>Best Exchange Price in Mumbai</h4>
-        <p>Our exchange valuations consistently beat competitors by 15–25%. We use real-time market data to give you the maximum value for your old device — instantly, with no haggling.</p>
-      </div>
-      <div class="why-card rv d3">
-        <span class="why-icon">📋</span>
-        <h4>6-Month Written Warranty</h4>
-        <p>Every repair comes with a written 6-month warranty certificate. If anything fails within the warranty period, we fix it free of charge — no questions, no hassle, guaranteed.</p>
-      </div>
-      <div class="why-card rv">
-        <span class="why-icon">🔒</span>
-        <h4>Your Data is 100% Safe</h4>
-        <p>We never access your personal data during repairs. Our technicians are trained in strict data privacy protocols. Data recovery jobs are handled under a signed confidentiality agreement.</p>
-      </div>
-      <div class="why-card rv d1">
-        <span class="why-icon">🧑‍💻</span>
-        <h4>Certified Technicians</h4>
-        <p>Our team of 12 technicians holds Apple and industry certifications with an average of 5+ years of hands-on experience. We train internally every quarter to stay current with the latest Apple hardware.</p>
-      </div>
-      <div class="why-card rv d2">
-        <span class="why-icon">📍</span>
-        <h4>Walk-In Friendly Location</h4>
-        <p>Located in the heart of Bandra West with easy parking and close to the station. Open 7 days a week including Sundays and public holidays. No appointment required for most services.</p>
-      </div>
-      <div class="why-card rv d3">
-        <span class="why-icon">🤝</span>
-        <h4>Transparent Pricing</h4>
-        <p>You get a full, itemized quote before we touch your device. No surprises on your bill. We explain every repair step in plain language — no jargon, no upselling, no pressure.</p>
-      </div>
+      <div class="why-card rv"><span class="why-icon">🛡️</span><h4>100% Genuine Apple Parts</h4><p>Every screen, battery, and component sourced directly from Apple's supply chain. No refurbished, no knock-offs — ever.</p></div>
+      <div class="why-card rv d1"><span class="why-icon">⚡</span><h4>Same-Day Service</h4><p>Most iPhone and iPad repairs completed in under 90 minutes. MacBook repairs typically done within 4 hours.</p></div>
+      <div class="why-card rv d2"><span class="why-icon">💰</span><h4>Best Exchange Price in Kolkata</h4><p>Our exchange valuations consistently beat competitors by 15–25%, using real-time market data to give you maximum value.</p></div>
+      <div class="why-card rv d3"><span class="why-icon">📋</span><h4>6-Month Written Warranty</h4><p>Every repair comes with a written 6-month warranty certificate. Anything fails — we fix it free, no questions asked.</p></div>
+      <div class="why-card rv"><span class="why-icon">🔒</span><h4>Your Data is 100% Safe</h4><p>We never access your personal data. Our technicians follow strict data privacy protocols on every single repair job.</p></div>
+      <div class="why-card rv d1"><span class="why-icon">🧑‍💻</span><h4>Certified Technicians</h4><p>Our team holds Apple certifications with an average of 5+ years experience. We train internally every quarter.</p></div>
+      <div class="why-card rv d2"><span class="why-icon">📍</span><h4>Walk-In Friendly Location</h4><p>Located in the heart of Kolkata, open 7 days a week including Sundays. No appointment required for most services.</p></div>
+      <div class="why-card rv d3"><span class="why-icon">🤝</span><h4>Transparent Pricing</h4><p>Full itemized quote before we touch your device. No surprises on your bill — no jargon, no upselling, no pressure.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════ BEFORE AFTER / PROMISE ══════════ -->
+<!-- OUR PROMISE -->
 <section class="ba-section">
   <div class="ba-inner">
     <div class="ba-text rv">
       <div class="section-label">Our Promise</div>
       <h2 class="title">We Don't Just Fix<br>Devices. We Restore<br>Your Peace of Mind.</h2>
-      <p class="sub">Every repair comes with our comprehensive TechXchange Promise — a commitment to quality that no other Mumbai repair center can match.</p>
+      <p class="sub">Every repair comes with our comprehensive TechXchange Promise — a commitment to quality no other Kolkata repair center can match.</p>
       <div class="ba-points">
         <div class="ba-point">
           <div class="ba-pt-icon">🔬</div>
-          <div>
-            <div class="ba-pt-title">25-Point Quality Check</div>
-            <div class="ba-pt-desc">Every repaired device passes a rigorous 25-point inspection before handover — we test everything from touch sensitivity to GPS accuracy.</div>
-          </div>
+          <div><div class="ba-pt-title">25-Point Quality Check</div><div class="ba-pt-desc">Every repaired device passes a rigorous 25-point inspection before handover — testing everything from touch sensitivity to GPS accuracy.</div></div>
         </div>
         <div class="ba-point">
           <div class="ba-pt-icon">📦</div>
-          <div>
-            <div class="ba-pt-title">Sealed &amp; Sanitized</div>
-            <div class="ba-pt-desc">Your device is deep-cleaned, sealed, and returned in protective packaging with your repair report and warranty certificate.</div>
-          </div>
+          <div><div class="ba-pt-title">Sealed &amp; Sanitized</div><div class="ba-pt-desc">Your device is deep-cleaned, sealed, and returned in protective packaging with your repair report and warranty certificate.</div></div>
         </div>
         <div class="ba-point">
           <div class="ba-pt-icon">🔁</div>
-          <div>
-            <div class="ba-pt-title">No-Fix, No-Fee Policy</div>
-            <div class="ba-pt-desc">If we can't fix your device, you don't pay a single rupee. Simple as that. We absorb the diagnostic cost because we're confident in our work.</div>
-          </div>
-        </div>
-        <div class="ba-point">
-          <div class="ba-pt-icon">📱</div>
-          <div>
-            <div class="ba-pt-title">Live Repair Tracking</div>
-            <div class="ba-pt-desc">Get real-time SMS and WhatsApp updates as your device moves through our repair workflow. No more anxiously wondering what's happening.</div>
-          </div>
+          <div><div class="ba-pt-title">No-Fix, No-Fee Policy</div><div class="ba-pt-desc">If we can't fix it, you pay nothing — not even the diagnostic charge. Zero risk, always.</div></div>
         </div>
       </div>
-      <button class="btn-p" onclick="scrollTo('contact')">Book My Repair →</button>
+      <button class="btn-p" onclick="scrollTo('contact')">Claim Your Promise →</button>
     </div>
     <div class="ba-imgs rv d2">
-      <div class="ba-img-block">
-        <img src="https://images.unsplash.com/photo-1563770660941-20978e870e26?w=600&q=80" alt="Broken iPhone before repair">
-        <div class="ba-img-label"><div class="ba-label-dot" style="background:#ff453a"></div> Before</div>
-      </div>
-      <div class="ba-img-block">
-        <img src="https://images.unsplash.com/photo-1616348436168-de43ad0db179?w=600&q=80" alt="Repaired iPhone after service">
-        <div class="ba-img-label"><div class="ba-label-dot" style="background:#30d158"></div> After</div>
-      </div>
-      <div class="ba-img-block">
-        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80" alt="Technician repairing device">
-        <div class="ba-img-label"><div class="ba-label-dot" style="background:#2997ff"></div> In Progress</div>
-      </div>
-      <div class="ba-img-block">
-        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80" alt="Quality checked device">
-        <div class="ba-img-label"><div class="ba-label-dot" style="background:#30d158"></div> Quality Checked</div>
-      </div>
+      <div class="ba-img-block"><img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=600&q=80" alt="Workshop"><div class="ba-img-label"><div class="ba-label-dot" style="background:var(--green)"></div>Expert Workshop</div></div>
+      <div class="ba-img-block"><img src="https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=600&q=80" alt="Apple tech"><div class="ba-img-label"><div class="ba-label-dot" style="background:var(--bluel)"></div>Premium Parts</div></div>
+      <div class="ba-img-block"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80" alt="Quality check"><div class="ba-img-label"><div class="ba-label-dot" style="background:var(--gold)"></div>25-Point Check</div></div>
+      <div class="ba-img-block"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80" alt="Exchange"><div class="ba-img-label"><div class="ba-label-dot" style="background:var(--orange)"></div>Best Exchange Value</div></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════ PRICING ══════════ -->
+<!-- PRICING -->
 <section class="pricing-section" id="pricing">
   <div class="pricing-inner">
     <div class="pricing-head rv">
@@ -1084,13 +1000,13 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
   </div>
 </section>
 
-<!-- ══════════ REVIEWS ══════════ -->
+<!-- REVIEWS -->
 <section class="reviews-section" id="reviews">
   <div class="reviews-inner">
     <div class="reviews-head rv">
       <div class="section-label">Customer Love</div>
       <h2 class="title">Real Stories,<br>Real Results</h2>
-      <p class="sub">Don't take our word for it — hear from over 12,000 Mumbai customers who trusted TechXchange.</p>
+      <p class="sub">Don't take our word for it — hear from over 12,000 Kolkata customers who trusted TechXchange.</p>
     </div>
     <div class="rating-row rv">
       <div class="rating-big">
@@ -1107,77 +1023,34 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
       </div>
     </div>
     <div class="rev-grid">
-      <div class="rev-card rv">
-        <div class="rev-stars">★★★★★</div>
-        <div class="rev-service">iPhone Screen Repair</div>
-        <p class="rev-text">"Shattered my iPhone 15 Pro Max screen completely. TechXchange replaced it with a genuine Apple display in 75 minutes. The phone looks and feels brand new — even Face ID works flawlessly. Best service center in Mumbai, hands down."</p>
-        <div class="reviewer"><div class="rev-av">👤</div><div><div class="rev-name">Rahul Mehta</div><div class="rev-loc">Andheri West, Mumbai</div></div></div>
-      </div>
-      <div class="rev-card rv d1">
-        <div class="rev-stars">★★★★★</div>
-        <div class="rev-service">MacBook Exchange</div>
-        <p class="rev-text">"Got ₹68,000 for my old MacBook Pro M1 — that's ₹8,000 more than what any other dealer offered. The process took 15 minutes total. Cash in my account within an hour. TechXchange is the real deal."</p>
-        <div class="reviewer"><div class="rev-av">👤</div><div><div class="rev-name">Priya Sharma</div><div class="rev-loc">Bandra, Mumbai</div></div></div>
-      </div>
-      <div class="rev-card rv d2">
-        <div class="rev-stars">★★★★★</div>
-        <div class="rev-service">iPad Screen Replacement</div>
-        <p class="rev-text">"My iPad Pro had dead pixels after 2 years. TechXchange replaced the display at a fraction of what Apple Store quoted. Same-day service, flawless result. The screen quality is perfect — I can't tell the difference."</p>
-        <div class="reviewer"><div class="rev-av">👤</div><div><div class="rev-name">Amit Patel</div><div class="rev-loc">Powai, Mumbai</div></div></div>
-      </div>
-      <div class="rev-card rv">
-        <div class="rev-stars">★★★★★</div>
-        <div class="rev-service">MacBook Water Damage</div>
-        <p class="rev-text">"Coffee spilled on my MacBook Air M2 and I thought it was gone forever. TechXchange recovered it completely — every file intact, keyboard working, display perfect. These guys are absolute wizards. Worth every rupee."</p>
-        <div class="reviewer"><div class="rev-av">👤</div><div><div class="rev-name">Sneha Kulkarni</div><div class="rev-loc">Thane, Mumbai</div></div></div>
-      </div>
-      <div class="rev-card rv d1">
-        <div class="rev-stars">★★★★★</div>
-        <div class="rev-service">Bulk Device Exchange</div>
-        <p class="rev-text">"Our office exchanged 14 old iPhones and 6 MacBooks at once. TechXchange sent a team to our office, evaluated everything on-site, and settled the full amount by evening. The corporate pricing was incredible. Highly recommend for businesses."</p>
-        <div class="reviewer"><div class="rev-av">👤</div><div><div class="rev-name">Vikram Singh</div><div class="rev-loc">BKC, Mumbai</div></div></div>
-      </div>
-      <div class="rev-card rv d2">
-        <div class="rev-stars">★★★★★</div>
-        <div class="rev-service">iPhone Battery Replacement</div>
-        <p class="rev-text">"My iPhone 14 battery was at 74% health and dying by 2pm every day. After TechXchange's genuine Apple battery replacement it's back to 100% and lasts well into the night. The 6-month warranty gave me complete confidence. Outstanding service!"</p>
-        <div class="reviewer"><div class="rev-av">👤</div><div><div class="rev-name">Kavya Nair</div><div class="rev-loc">Vile Parle, Mumbai</div></div></div>
-      </div>
+      <div class="rev-card rv"><div class="rev-stars">★★★★★</div><div class="rev-service">iPhone Screen Repair</div><p class="rev-text">"Shattered my iPhone 15 Pro Max screen completely. TechXchange replaced it with a genuine Apple display in 75 minutes. Best service center in Kolkata, hands down."</p><div class="reviewer"><div class="rev-av">👤</div><div><div class="rev-name">Rahul Mehta</div><div class="rev-loc">Park Street, Kolkata</div></div></div></div>
+      <div class="rev-card rv d1"><div class="rev-stars">★★★★★</div><div class="rev-service">MacBook Exchange</div><p class="rev-text">"Got ₹68,000 for my old MacBook Pro M1 — that's ₹8,000 more than any other dealer offered. Process took 15 minutes. Cash in account within an hour. TechXchange is the real deal."</p><div class="reviewer"><div class="rev-av">👤</div><div><div class="rev-name">Priya Sharma</div><div class="rev-loc">Salt Lake, Kolkata</div></div></div></div>
+      <div class="rev-card rv d2"><div class="rev-stars">★★★★★</div><div class="rev-service">iPad Screen Replacement</div><p class="rev-text">"My iPad Pro had dead pixels. TechXchange replaced the display at a fraction of what Apple Store quoted. Same-day service, flawless result. Can't tell the difference!"</p><div class="reviewer"><div class="rev-av">👤</div><div><div class="rev-name">Amit Patel</div><div class="rev-loc">New Town, Kolkata</div></div></div></div>
+      <div class="rev-card rv"><div class="rev-stars">★★★★★</div><div class="rev-service">MacBook Water Damage</div><p class="rev-text">"Coffee spilled on my MacBook Air M2 and I thought it was gone forever. TechXchange recovered it completely — every file intact. These guys are absolute wizards."</p><div class="reviewer"><div class="rev-av">👤</div><div><div class="rev-name">Sneha Kulkarni</div><div class="rev-loc">Behala, Kolkata</div></div></div></div>
+      <div class="rev-card rv d1"><div class="rev-stars">★★★★★</div><div class="rev-service">Bulk Device Exchange</div><p class="rev-text">"Our office exchanged 14 old iPhones and 6 MacBooks at once. TechXchange sent a team to our office, evaluated everything on-site, and settled by evening. Incredible corporate pricing."</p><div class="reviewer"><div class="rev-av">👤</div><div><div class="rev-name">Vikram Singh</div><div class="rev-loc">Sector V, Kolkata</div></div></div></div>
+      <div class="rev-card rv d2"><div class="rev-stars">★★★★★</div><div class="rev-service">iPhone Battery Replacement</div><p class="rev-text">"My iPhone 14 battery was at 74% health and dying by 2pm every day. After TechXchange's genuine Apple battery replacement it's back to 100% and lasts well into the night."</p><div class="reviewer"><div class="rev-av">👤</div><div><div class="rev-name">Kavya Nair</div><div class="rev-loc">Ballygunge, Kolkata</div></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════ GALLERY ══════════ -->
+<!-- GALLERY -->
 <section class="gallery-section">
   <div class="gallery-inner">
     <div class="gallery-head rv">
-      <div>
-        <div class="section-label">Our Workshop</div>
-        <h2 class="title">See Us in Action</h2>
-      </div>
-      <p class="sub" style="margin-bottom:0">A glimpse into Mumbai's most equipped Apple service workshop.</p>
+      <div><div class="section-label">Our Workshop</div><h2 class="title">See Us in Action</h2></div>
+      <p class="sub" style="margin-bottom:0">A glimpse inside Kolkata's most equipped Apple service workshop.</p>
     </div>
     <div class="gallery-grid rv">
-      <div class="g-item big">
-        <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=1000&q=80" alt="Tech repair workshop overview" style="height:100%">
-      </div>
-      <div class="g-item">
-        <img src="https://images.unsplash.com/photo-1563770660941-20978e870e26?w=600&q=80" alt="iPhone repair" style="height:200px">
-      </div>
-      <div class="g-item">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80" alt="Circuit repair" style="height:200px">
-      </div>
-      <div class="g-item tall">
-        <img src="https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=600&q=80" alt="Apple products" style="height:420px">
-      </div>
-      <div class="g-item">
-        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80" alt="MacBook repair" style="height:200px">
-      </div>
+      <div class="g-item big"><img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=1000&q=80" alt="Workshop" style="height:100%"></div>
+      <div class="g-item"><img src="https://images.unsplash.com/photo-1563770660941-20978e870e26?w=600&q=80" alt="iPhone repair" style="height:200px"></div>
+      <div class="g-item"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80" alt="Circuit repair" style="height:200px"></div>
+      <div class="g-item tall"><img src="https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=600&q=80" alt="Apple products" style="height:420px"></div>
+      <div class="g-item"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80" alt="MacBook repair" style="height:200px"></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════ FAQ ══════════ -->
+<!-- FAQ -->
 <section class="faq-section">
   <div class="faq-inner">
     <div class="faq-head rv">
@@ -1185,51 +1058,24 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
       <h2 class="title">Questions? Answered.</h2>
       <p class="sub">Everything you need to know before you visit us.</p>
     </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">How long does an iPhone screen replacement take?<span class="faq-ico">+</span></button>
-      <div class="faq-a"><p>Most iPhone screen replacements are completed in 60–90 minutes while you wait. iPhone Pro Max models and iPad screens take 2–3 hours. MacBook screens typically 3–5 hours. We always give you an accurate time estimate before we start — no surprises.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Do you use genuine Apple parts for repairs?<span class="faq-ico">+</span></button>
-      <div class="faq-a"><p>Absolutely. We use 100% genuine OEM Apple parts for all repairs — screens, batteries, charging ports, cameras, and everything else. We never use refurbished, third-party, or replica parts. If you'd prefer a premium third-party alternative at a lower cost, we'll tell you upfront and get your approval first.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">What devices do you accept in the exchange program?<span class="faq-ico">+</span></button>
-      <div class="faq-a"><p>We accept virtually all brands and models for exchange: iPhone (all models), Samsung, OnePlus, Xiaomi, Vivo, Oppo, Pixel, and more. For laptops we take MacBook, Dell, HP, Lenovo, Asus, Acer, and others. We accept devices in any condition — mint, cracked screen, broken charging port, water-damaged, or even completely dead. The condition affects the valuation but never the ability to exchange.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">How is the exchange value determined? Can I negotiate?<span class="faq-ico">+</span></button>
-      <div class="faq-a"><p>We evaluate based on model, storage capacity, physical condition, battery health, and live market rates updated daily. Our appraisers are trained to give you the highest fair market value. The evaluation is completely free and there's no obligation to sell. If you have a better offer from another dealer, show us — we'll often beat it. We don't believe in low-balling; our volume means we can offer you more.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">What warranty do you provide on repairs?<span class="faq-ico">+</span></button>
-      <div class="faq-a"><p>All repairs come with a minimum 90-day warranty on parts and labour. Most repairs — including screen replacements on flagship iPhones and MacBook keyboard replacements — come with a full 6-month warranty. If anything fails within the warranty period due to our repair, we fix it completely free of charge. You'll receive a written warranty certificate with every repair.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Is my personal data safe during repair?<span class="faq-ico">+</span></button>
-      <div class="faq-a"><p>Your data security is our top priority. Our technicians are strictly prohibited from accessing any personal data on your device. We recommend you back up your device before bringing it in as a precaution. For data recovery jobs, all work is done under a signed Non-Disclosure Agreement (NDA) available on request. We've never had a data breach or complaint in 7 years of operation.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Do you offer a pickup and drop service?<span class="faq-ico">+</span></button>
-      <div class="faq-a"><p>Yes! For bulk exchange orders (5+ devices) and corporate clients, we offer free pickup from your location anywhere in Mumbai. For individual repairs, we're working on a home pickup service — ask our team for current availability. Walk-ins are always welcome at our Bandra West store, 7 days a week.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">What if you can't fix my device?<span class="faq-ico">+</span></button>
-      <div class="faq-a"><p>Our No-Fix, No-Fee policy means if we can't repair your device, you pay nothing — not even the diagnostic charge. We'll return your device in the exact condition we received it and give you an honest assessment of your options, which may include our exchange program where we'll still offer you value for a non-working device.</p></div>
-    </div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How long does an iPhone screen replacement take?<span class="faq-ico">+</span></button><div class="faq-a"><p>Most iPhone screen replacements are completed in 60–90 minutes while you wait. iPhone Pro Max models and iPad screens take 2–3 hours. MacBook screens typically 3–5 hours.</p></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do you use genuine Apple parts?<span class="faq-ico">+</span></button><div class="faq-a"><p>Absolutely. We use 100% genuine OEM Apple parts for all repairs — screens, batteries, charging ports, cameras, and everything else. No third-party or replica parts, ever.</p></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What devices do you accept in the exchange program?<span class="faq-ico">+</span></button><div class="faq-a"><p>We accept virtually all brands and models — iPhone (all models), Samsung, OnePlus, Xiaomi, and more. For laptops: MacBook, Dell, HP, Lenovo, Asus, Acer. Any condition accepted — even completely dead devices.</p></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How is the exchange value determined?<span class="faq-ico">+</span></button><div class="faq-a"><p>We evaluate based on model, storage, physical condition, battery health, and live market rates updated daily. The evaluation is completely free with no obligation to sell. Show us a better offer — we'll often beat it.</p></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What warranty do you provide?<span class="faq-ico">+</span></button><div class="faq-a"><p>All repairs come with a minimum 90-day warranty. Most repairs — including screen replacements and MacBook keyboard replacements — come with a full 6-month written warranty certificate.</p></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is my personal data safe?<span class="faq-ico">+</span></button><div class="faq-a"><p>Your data security is our top priority. Our technicians are strictly prohibited from accessing any personal data. Data recovery jobs are done under a signed NDA. We've never had a data breach in 7 years.</p></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What if you can't fix my device?<span class="faq-ico">+</span></button><div class="faq-a"><p>Our No-Fix, No-Fee policy means if we can't repair your device, you pay nothing — not even the diagnostic charge. We'll return your device in the exact condition we received it.</p></div></div>
   </div>
 </section>
 
-<!-- ══════════ CTA ══════════ -->
+<!-- CTA -->
 <section class="cta-section">
-  <div class="cta-bg">
-    <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=1920&q=80" alt="workshop">
-  </div>
+  <div class="cta-bg"><img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=1920&q=80" alt="workshop"></div>
   <div class="cta-overlay"></div>
   <div class="cta-content rv">
     <div class="section-label" style="justify-content:center">Get Started Today</div>
     <h2>Ready to Restore,<br>Exchange or Upgrade?</h2>
-    <p>Walk in or book ahead — Mumbai's most trusted Apple service center is ready for you, 7 days a week, with same-day turnaround on most repairs.</p>
+    <p>Walk in or book ahead — Kolkata's most trusted Apple service center is ready for you, 7 days a week, same-day turnaround on most repairs.</p>
     <div class="cta-actions">
       <button class="btn-p" onclick="scrollTo('contact')">Book a Service Now →</button>
       <a href="tel:+919999999999" class="btn-s">📞 Call Us Now</a>
@@ -1238,38 +1084,20 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
   </div>
 </section>
 
-<!-- ══════════ CONTACT ══════════ -->
+<!-- CONTACT -->
 <section class="contact-section" id="contact">
   <div class="contact-inner">
-    <div rv>
+    <div class="rv">
       <div class="section-label">Get In Touch</div>
       <h2 class="title">Visit Us or<br>Send a Message</h2>
-      <p class="sub">We're open 7 days a week. Walk-ins always welcome, or book ahead for priority service and skip the wait.</p>
+      <p class="sub">We're open 7 days a week. Walk-ins always welcome, or book ahead for priority service.</p>
       <div class="cinfo-cards">
-        <a class="ci-card" href="tel:+919999999999">
-          <div class="ci-ico">📞</div>
-          <div><h4>Call or WhatsApp</h4><p>+91 99999 99999 — Available 10am–8pm, 7 days</p></div>
-        </a>
-        <a class="ci-card" href="mailto:hello@techxchange.in">
-          <div class="ci-ico">✉️</div>
-          <div><h4>Email Us</h4><p>hello@techxchange.in — Reply within 2 hours</p></div>
-        </a>
-        <div class="ci-card">
-          <div class="ci-ico">📍</div>
-          <div><h4>Store Location</h4><p>Linking Road, Bandra West, Mumbai – 400 050</p></div>
-        </div>
-        <div class="ci-card">
-          <div class="ci-ico">🕐</div>
-          <div><h4>Working Hours</h4><p>Mon–Sat: 10:00am–8:00pm &nbsp;|&nbsp; Sunday: 11:00am–6:00pm</p></div>
-        </div>
+        <a class="ci-card" href="tel:+919999999999"><div class="ci-ico">📞</div><div><h4>Call or WhatsApp</h4><p>+91 99999 99999 — Available 10am–8pm, 7 days</p></div></a>
+        <a class="ci-card" href="mailto:hello@techxchange.in"><div class="ci-ico">✉️</div><div><h4>Email Us</h4><p>hello@techxchange.in — Reply within 2 hours</p></div></a>
+        <div class="ci-card"><div class="ci-ico">📍</div><div><h4>Store Location</h4><p>Park Street, Kolkata – 700 016, West Bengal</p></div></div>
+        <div class="ci-card"><div class="ci-ico">🕐</div><div><h4>Working Hours</h4><p>Mon–Sat: 10:00am–8:00pm &nbsp;|&nbsp; Sunday: 11:00am–6:00pm</p></div></div>
       </div>
-      <div class="map-embed">
-        <div class="map-placeholder">
-          <div class="map-icon">📍</div>
-          <div style="font-weight:600;margin-bottom:4px">Linking Road, Bandra West</div>
-          <div style="font-size:.82rem">Mumbai, Maharashtra 400050</div>
-        </div>
-      </div>
+      <div class="map-embed"><div class="map-placeholder"><div class="map-icon">📍</div><div style="font-weight:600;margin-bottom:4px">Park Street, Kolkata</div><div style="font-size:.82rem">West Bengal 700016</div></div></div>
     </div>
     <form class="cform rv d2" onsubmit="handleForm(event)">
       <div class="form-row">
@@ -1277,102 +1105,61 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
         <div class="fg"><label>Phone Number *</label><input type="tel" placeholder="+91 98765 43210" required></div>
       </div>
       <div class="fg"><label>Email Address</label><input type="email" placeholder="rahul@example.com"></div>
-      <div class="fg">
-        <label>Service Required *</label>
+      <div class="fg"><label>Service Required *</label>
         <select required>
           <option value="" disabled selected>Select a service...</option>
           <optgroup label="Repair Services">
-            <option>iPhone Repair</option>
-            <option>iPad Repair</option>
-            <option>MacBook Repair</option>
-            <option>Other Laptop Repair</option>
-            <option>Battery Replacement</option>
-            <option>Screen Replacement</option>
-            <option>Data Recovery</option>
-            <option>Water Damage Repair</option>
+            <option>iPhone Repair</option><option>iPad Repair</option><option>MacBook Repair</option>
+            <option>Battery Replacement</option><option>Screen Replacement</option><option>Data Recovery</option><option>Water Damage Repair</option>
           </optgroup>
           <optgroup label="Exchange Program">
-            <option>iPhone Exchange</option>
-            <option>iPad Exchange</option>
-            <option>MacBook Exchange</option>
-            <option>Laptop Exchange</option>
-            <option>Bulk Device Exchange (5+)</option>
+            <option>iPhone Exchange</option><option>iPad Exchange</option><option>MacBook Exchange</option><option>Bulk Device Exchange (5+)</option>
           </optgroup>
           <option>Other / Not Sure</option>
         </select>
       </div>
       <div class="fg"><label>Device Model</label><input type="text" placeholder="e.g. iPhone 15 Pro Max 256GB"></div>
       <div class="fg"><label>Describe Your Issue</label><textarea placeholder="Tell us the problem you're facing, how it happened, and anything else that would help our technicians prepare..."></textarea></div>
-      <div class="fg">
-        <label>Preferred Contact Time</label>
-        <select>
-          <option>Any time (10am–8pm)</option>
-          <option>Morning (10am–12pm)</option>
-          <option>Afternoon (12pm–4pm)</option>
-          <option>Evening (4pm–8pm)</option>
-        </select>
+      <div class="fg"><label>Preferred Contact Time</label>
+        <select><option>Any time (10am–8pm)</option><option>Morning (10am–12pm)</option><option>Afternoon (12pm–4pm)</option><option>Evening (4pm–8pm)</option></select>
       </div>
       <button type="submit" class="btn-p" style="width:100%;justify-content:center">Send Message &amp; Get Quote →</button>
     </form>
   </div>
 </section>
 
-<!-- ══════════ FOOTER ══════════ -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <a href="#" class="logo">
-        <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-        Tech<span class="logo-x">X</span>change
-      </a>
-      <p>Mumbai's most trusted destination for iPhone, iPad, and MacBook repair, exchange, and Apple device services. 7 years of excellence — 12,000+ happy customers across Mumbai, Thane, and Navi Mumbai.</p>
+      <a href="#" class="logo"><div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>Tech<span class="logo-x">X</span>change</a>
+      <p>Kolkata's most trusted destination for iPhone, iPad, and MacBook repair, exchange, and Apple device services. 7 years of excellence — 12,000+ happy customers across Kolkata, Howrah, and Navi Kolkata.</p>
       <div class="footer-badge-row">
         <div class="f-badge">✅ Genuine Parts</div>
         <div class="f-badge">⚡ Same Day</div>
         <div class="f-badge">🛡️ 6-Mo Warranty</div>
       </div>
     </div>
-    <div class="footer-col">
-      <h5>Repair Services</h5>
-      <ul>
-        <li><a href="#services">iPhone Repair</a></li>
-        <li><a href="#devices">iPad Repair</a></li>
-        <li><a href="#devices">MacBook Repair</a></li>
-        <li><a href="#services">Laptop Repair</a></li>
-        <li><a href="#services">Data Recovery</a></li>
-        <li><a href="#services">Battery Replacement</a></li>
-        <li><a href="#services">Water Damage Fix</a></li>
-        <li><a href="#services">Screen Replacement</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Exchange Program</h5>
-      <ul>
-        <li><a href="#services">iPhone Exchange</a></li>
-        <li><a href="#services">iPad Exchange</a></li>
-        <li><a href="#services">MacBook Exchange</a></li>
-        <li><a href="#services">Laptop Exchange</a></li>
-        <li><a href="#services">Bulk Exchange</a></li>
-        <li><a href="#services">Corporate Plans</a></li>
-        <li><a href="#services">Check My Device Value</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Support</h5>
-      <ul>
-        <li><a href="#">Track My Repair</a></li>
-        <li><a href="#">Warranty Policy</a></li>
-        <li><a href="#">No-Fix No-Fee Policy</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-        <li><a href="#">Blog &amp; Tips</a></li>
-        <li><a href="#">Careers</a></li>
-      </ul>
-    </div>
+    <div class="footer-col"><h5>Repair Services</h5><ul>
+      <li><a href="#services">iPhone Repair</a></li><li><a href="#devices">iPad Repair</a></li>
+      <li><a href="#devices">MacBook Repair</a></li><li><a href="#services">Laptop Repair</a></li>
+      <li><a href="#services">Data Recovery</a></li><li><a href="#services">Battery Replacement</a></li>
+      <li><a href="#services">Water Damage Fix</a></li><li><a href="#services">Screen Replacement</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Exchange Program</h5><ul>
+      <li><a href="#services">iPhone Exchange</a></li><li><a href="#services">iPad Exchange</a></li>
+      <li><a href="#services">MacBook Exchange</a></li><li><a href="#services">Laptop Exchange</a></li>
+      <li><a href="#services">Bulk Exchange</a></li><li><a href="#services">Corporate Plans</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Support</h5><ul>
+      <li><a href="#">Track My Repair</a></li><li><a href="#">Warranty Policy</a></li>
+      <li><a href="#">No-Fix No-Fee Policy</a></li><li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms of Service</a></li><li><a href="#contact">Contact Us</a></li>
+      <li><a href="#">Blog &amp; Tips</a></li><li><a href="#">Careers</a></li>
+    </ul></div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 TechXchange Company. All rights reserved. Made with ❤️ in Mumbai, India.</p>
+    <p>© 2025 TechXchange Company. All rights reserved. Made with ❤️ in Kolkata, India.</p>
     <div class="socials">
       <a class="soc-btn" href="#" title="Instagram">📸</a>
       <a class="soc-btn" href="#" title="WhatsApp">💬</a>
@@ -1384,7 +1171,7 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
 </footer>
 
 <script>
-// ── CURSOR ──
+// CURSOR
 const cur=document.getElementById('cur'),ring=document.getElementById('ring');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
@@ -1394,10 +1181,10 @@ document.querySelectorAll('a,button,.svc-card,.rev-card,.why-card,.dev-spec,.apr
   el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='36px';ring.style.height='36px'});
 });
 
-// ── NAV SCROLL ──
+// NAV SCROLL
 window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',scrollY>50));
 
-// ── DRAWER ──
+// DRAWER
 let drawerOpen=false;
 function toggleDrawer(){
   drawerOpen=!drawerOpen;
@@ -1409,16 +1196,16 @@ function toggleDrawer(){
 }
 function closeDrawer(){if(drawerOpen)toggleDrawer()}
 
-// ── SCROLL TO ──
+// SCROLL TO
 function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
 
-// ── REVEAL ──
+// REVEAL
 const rvObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});
 },{threshold:.1,rootMargin:'0px 0px -50px 0px'});
 document.querySelectorAll('.rv').forEach(el=>rvObs.observe(el));
 
-// ── COUNT UP ──
+// COUNT UP
 function countUp(el,t,suf){
   let v=0;const dur=2000,step=t/(dur/16);
   const tmr=setInterval(()=>{
@@ -1438,7 +1225,7 @@ const cObs=new IntersectionObserver(entries=>{
 },{threshold:.5});
 document.querySelectorAll('[data-t]').forEach(el=>cObs.observe(el));
 
-// ── SERVICE CARD GLOW ──
+// SERVICE CARD GLOW
 document.querySelectorAll('.svc-card').forEach(c=>{
   c.addEventListener('mousemove',e=>{
     const r=c.getBoundingClientRect();
@@ -1447,14 +1234,14 @@ document.querySelectorAll('.svc-card').forEach(c=>{
   });
 });
 
-// ── DEVICE TABS ──
+// DEVICE TABS
 function switchDev(tab){
   document.querySelectorAll('.dev-tab').forEach((b,i)=>b.classList.toggle('active',['iphone','ipad','macbook'][i]===tab));
   document.querySelectorAll('.dev-content').forEach(c=>c.classList.remove('active'));
   document.getElementById('dev-'+tab).classList.add('active');
 }
 
-// ── PRICING ──
+// PRICING
 const pData={
   mobile:[
     {name:'Basic',desc:'Minor repairs & quick fixes',price:'₹499',note:'Starting price',feats:['Screen cleaning & polish','Software diagnosis','Battery health check','Charging port cleaning','Free full assessment'],cta:'Get Quote'},
@@ -1464,7 +1251,7 @@ const pData={
   laptop:[
     {name:'Basic',desc:'Software & minor fixes',price:'₹799',note:'Starting price',feats:['OS reinstall & setup','Virus & malware removal','Keyboard & trackpad cleaning','RAM health check','Free diagnosis'],cta:'Get Quote'},
     {name:'Standard',desc:'Screen & hardware repair',price:'₹2,999',note:'Most popular laptop service',feats:['Screen replacement','Keyboard replacement','Charging port repair','Thermal paste renewal','SSD health check','90-day warranty'],pop:true,cta:'Book Now'},
-    {name:'Premium',desc:'MacBook specialist service',price:'₹6,999',note:'Mumbai\'s best Apple Mac lab',feats:['Logic board repair / reball','Liquid damage full recovery','NVMe SSD upgrade','Complete deep clean','6-month warranty','Priority 4-hour turnaround'],cta:'Get Quote'}
+    {name:'Premium',desc:'MacBook specialist service',price:'₹6,999',note:'Kolkata\'s best Apple Mac lab',feats:['Logic board repair / reball','Liquid damage full recovery','NVMe SSD upgrade','Complete deep clean','6-month warranty','Priority 4-hour turnaround'],cta:'Get Quote'}
   ],
   exchange:[
     {name:'Quick Trade',desc:'Instant cash for your device',price:'Free',note:'Walk in anytime, no appointment',feats:['Instant device evaluation','Same-day cash or bank transfer','All brands & models accepted','Any condition — even dead','Free — no obligation to sell'],cta:'Start Exchange'},
@@ -1487,14 +1274,14 @@ function switchPricing(tab){
 }
 switchPricing('mobile');
 
-// ── FAQ ──
+// FAQ
 function toggleFaq(btn){
   const item=btn.closest('.faq-item'),open=item.classList.contains('open');
   document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
   if(!open)item.classList.add('open');
 }
 
-// ── FORM ──
+// FORM
 function handleForm(e){
   e.preventDefault();
   const btn=e.target.querySelector('button[type=submit]');
@@ -1503,7 +1290,7 @@ function handleForm(e){
   setTimeout(()=>{btn.textContent='Send Message & Get Quote →';btn.style.background=''},5000);
 }
 
-// ── LIVE COUNTER EASTER EGG ──
+// LIVE COUNTER
 let lc=24;
 setInterval(()=>{if(Math.random()<.3){lc+=Math.floor(Math.random()*2)+1;const el=document.getElementById('liveCount');if(el)el.textContent=lc}},8000);
 </script>
