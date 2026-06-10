@@ -1420,8 +1420,8 @@ section,div,header,footer,nav{max-width:100%;box-sizing:border-box}
           <div class="sfb-title">📋 Quick Quote Request</div>
           <form class="sell-form" onsubmit="handleSellForm(event)">
             <div class="form-row">
-              <div class="fg"><label>Your Name *</label><input type="text" placeholder="Rahul Mehta" required></div>
-              <div class="fg"><label>Phone *</label><input type="tel" placeholder="+91 70030 08434" required></div>
+              <div class="fg"><label>Your Name *</label><input id="sellName" type="text" placeholder="Rahul Mehta" required></div>
+              <div class="fg"><label>Phone *</label><input id="sellPhone" type="tel" placeholder="+91 70030 08434" required></div>
             </div>
             <div class="fg"><label>Device &amp; Model *</label><input type="text" id="quickDeviceInput" placeholder="e.g. iPhone 14 Pro 256GB" required></div>
             <div class="fg"><label>Condition *</label>
@@ -1569,7 +1569,7 @@ section,div,header,footer,nav{max-width:100%;box-sizing:border-box}
       </div>
       <div class="map-embed"><div class="map-placeholder"><div class="map-icon">📍</div><div style="font-weight:600;margin-bottom:4px">Park Street, Kolkata</div><div style="font-size:.82rem">West Bengal 700016</div></div></div>
     </div>
-    <form class="cform rv d2" onsubmit="handleForm(event)">
+    <form class="cform rv d2" onsubmit="handleContactForm(event)">
       <div class="form-row">
         <div class="fg"><label>Your Name *</label><input type="text" placeholder="Rahul Mehta" required></div>
         <div class="fg"><label>Phone Number *</label><input type="tel" placeholder="+91 70030 08434" required></div>
@@ -1694,9 +1694,49 @@ function closeModal(){document.getElementById('contactModal').classList.remove('
 document.getElementById('contactModal').addEventListener('click',function(e){if(e.target===this)closeModal()});
 function handleModalForm(e){
   e.preventDefault();
-  const btn=e.target.querySelector('button[type=submit]');
-  btn.textContent='✓ Sent! We\'ll call you shortly.';btn.style.background='var(--green)';
-  setTimeout(()=>{btn.textContent='Send & Get Free Quote →';btn.style.background='';closeModal()},3000);
+  const form = e.target;
+  const textInputs = form.querySelectorAll('input[type="text"]');
+  const telInput = form.querySelector('input[type="tel"]');
+  const emailInput = form.querySelector('input[type="email"]');
+  const selects = form.querySelectorAll('select');
+  const textarea = form.querySelector('textarea');
+
+  const data = {
+    formType: "Contact Form (Modal)",
+    name: textInputs[0] ? textInputs[0].value.trim() : "",
+    phone: telInput ? telInput.value.trim() : "",
+    email: emailInput ? emailInput.value.trim() : "",
+    device: textInputs[1] ? textInputs[1].value.trim() : "",
+    service: selects[0] ? selects[0].value : "",
+    message: textarea ? textarea.value.trim() : ""
+  };
+
+  const btn = form.querySelector('button[type=submit]');
+  const origText = btn.textContent;
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  fetch("https://script.google.com/macros/s/AKfycbxTwdylJwFyWzlGZtzOEhrBHbezZaTBBWg0ce9N_KLa0tUTTg9Hljwdv-6hp4FQ82gQ8w/exec", {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+  .then(() => {
+    btn.textContent = "✓ Sent! We'll call you shortly.";
+    btn.style.background = 'var(--green)';
+    form.reset();
+    setTimeout(() => {
+      btn.textContent = origText;
+      btn.style.background = '';
+      btn.disabled = false;
+      closeModal();
+    }, 3000);
+  })
+  .catch(err => {
+    console.error("Modal form error:", err);
+    btn.textContent = origText;
+    btn.disabled = false;
+    alert("Submission Failed. Please try again.");
+  });
 }
 // SELL MODAL
 function openSellModal(){document.getElementById('sellModal').classList.add('open');document.body.style.overflow='hidden';}
@@ -1704,16 +1744,51 @@ function closeSellModal(){document.getElementById('sellModal').classList.remove(
 document.getElementById('sellModal').addEventListener('click',function(e){if(e.target===this)closeSellModal()});
 function handleSellModal(e){
   e.preventDefault();
-  const btn=e.target.querySelector('button[type=submit]');
-  btn.textContent='✓ Quote Request Sent!';btn.style.background='var(--green)';
-  setTimeout(()=>{btn.textContent='Get My Free Quote →';btn.style.background='';closeSellModal()},3000);
+  const form = e.target;
+  const textInputs = form.querySelectorAll('input[type="text"]');
+  const telInput = form.querySelector('input[type="tel"]');
+  const emailInput = form.querySelector('input[type="email"]');
+  const selects = form.querySelectorAll('select');
+  const textarea = form.querySelector('textarea');
+
+  const data = {
+    formType: "Sell Device (Modal)",
+    name: textInputs[0] ? textInputs[0].value : "",
+    phone: telInput ? telInput.value : "",
+    email: emailInput ? emailInput.value : "",
+    device: selects[1] ? selects[1].value + " — " + (textInputs[1] ? textInputs[1].value : "") : (textInputs[1] ? textInputs[1].value : ""),
+    service: "Sell Device — " + (selects[0] ? selects[0].value : ""),
+    message: textarea ? textarea.value : ""
+  };
+
+  const btn = form.querySelector('button[type=submit]');
+  const origText = btn.textContent;
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  fetch("https://script.google.com/macros/s/AKfycbxTwdylJwFyWzlGZtzOEhrBHbezZaTBBWg0ce9N_KLa0tUTTg9Hljwdv-6hp4FQ82gQ8w/exec", {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+  .then(() => {
+    btn.textContent = '✓ Quote Request Sent!';
+    btn.style.background = 'var(--green)';
+    form.reset();
+    setTimeout(() => {
+      btn.textContent = origText;
+      btn.style.background = '';
+      btn.disabled = false;
+      closeSellModal();
+    }, 3000);
+  })
+  .catch(err => {
+    console.error(err);
+    btn.textContent = origText;
+    btn.disabled = false;
+    alert("Submission Failed. Please try again.");
+  });
 }
-function handleSellForm(e){
-  e.preventDefault();
-  const btn=e.target.querySelector('button[type=submit]');
-  btn.textContent='✓ We\'ll call you within 30 min!';btn.style.background='var(--green)';
-  setTimeout(()=>{btn.textContent='Get Instant Quote →';btn.style.background=''},4000);
-}
+// SELL FORM (quick quote section) handled by handleSellForm above
 // SELL DEVICE SELECT
 function selectDevice(el,name){
   document.querySelectorAll('.sell-device-card').forEach(c=>c.classList.remove('active-dev'));
@@ -1774,11 +1849,101 @@ function toggleFaq(btn){
   if(!open)item.classList.add('open');
 }
 // CONTACT FORM
-function handleForm(e){
-  e.preventDefault();
-  const btn=e.target.querySelector('button[type=submit]');
-  btn.textContent='✓ Message Sent! We\'ll call you shortly.';btn.style.background='var(--green)';
-  setTimeout(()=>{btn.textContent='Send Message & Get Quote →';btn.style.background=''},5000);
+function handleContactForm(event) {
+  event.preventDefault();
+
+  const form = event.target;
+  const textInputs = form.querySelectorAll('input[type="text"]');
+  const selects = form.querySelectorAll('select');
+
+  const data = {
+    formType: "Contact Form",
+    name: textInputs[0] ? textInputs[0].value : "",
+    email: form.querySelector('input[type="email"]') ? form.querySelector('input[type="email"]').value : "",
+    phone: form.querySelector('input[type="tel"]') ? form.querySelector('input[type="tel"]').value : "",
+    device: textInputs[1] ? textInputs[1].value : "",
+    service: selects[0] ? selects[0].value : "",
+    message: form.querySelector('textarea') ? form.querySelector('textarea').value : ""
+  };
+
+  const btn = form.querySelector('button[type="submit"]');
+  const origText = btn.textContent;
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  fetch("https://script.google.com/macros/s/AKfycbxTwdylJwFyWzlGZtzOEhrBHbezZaTBBWg0ce9N_KLa0tUTTg9Hljwdv-6hp4FQ82gQ8w/exec", {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+  .then(() => {
+    btn.textContent = '✓ Message Sent!';
+    btn.style.background = 'var(--green)';
+    form.reset();
+    setTimeout(() => {
+      btn.textContent = origText;
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 3000);
+  })
+  .catch(err => {
+    console.error(err);
+    btn.textContent = origText;
+    btn.disabled = false;
+    alert("Submission Failed. Please try again.");
+  });
+}
+
+function handleSellForm(event){
+  event.preventDefault();
+
+  const form = event.target;
+  const selects = form.querySelectorAll('select');
+
+  const nameVal = document.getElementById('sellName') ? document.getElementById('sellName').value.trim() : "";
+  const phoneVal = document.getElementById('sellPhone') ? document.getElementById('sellPhone').value.trim() : "";
+  const deviceVal = document.getElementById('quickDeviceInput') ? document.getElementById('quickDeviceInput').value.trim() : "";
+  const conditionVal = selects[0] ? selects[0].value : "";
+
+  if(!nameVal || !phoneVal || !deviceVal || !conditionVal) {
+    alert("Please fill in all required fields.");
+    return;
+  }
+
+  const data = {
+    formType: "Sell Device (Quick Quote)",
+    name: nameVal,
+    phone: phoneVal,
+    email: "",
+    device: deviceVal,
+    service: "Sell Device — " + conditionVal,
+    message: ""
+  };
+
+  const btn = form.querySelector('button[type="submit"]');
+  const origText = btn.textContent;
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  fetch("https://script.google.com/macros/s/AKfycbxTwdylJwFyWzlGZtzOEhrBHbezZaTBBWg0ce9N_KLa0tUTTg9Hljwdv-6hp4FQ82gQ8w/exec", {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+  .then(() => {
+    btn.textContent = "✓ We'll call you within 30 min!";
+    btn.style.background = 'var(--green)';
+    form.reset();
+    setTimeout(() => {
+      btn.textContent = origText;
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 4000);
+  })
+  .catch(err => {
+    console.error("Sell form error:", err);
+    btn.textContent = origText;
+    btn.disabled = false;
+    alert("Submission Failed. Please try again.");
+  });
 }
 // LIVE COUNTER
 let lc=24;
