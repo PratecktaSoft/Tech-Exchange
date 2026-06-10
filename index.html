@@ -25,6 +25,7 @@ button{font-family:'DM Sans',sans-serif;cursor:pointer}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--blue);border-radius:4px}
 
+
 /* CURSOR */
 #cur,#ring{position:fixed;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);z-index:9999}
 #cur{width:10px;height:10px;background:var(--bluel);top:0;left:0;transition:width .18s,height .18s;mix-blend-mode:screen}
@@ -1255,7 +1256,7 @@ section,div,header,footer,nav{max-width:100%;box-sizing:border-box}
     <form class="modal-form" onsubmit="handleModalForm(event)">
       <div class="form-row">
         <div class="fg"><label>Your Name *</label><input type="text" placeholder="Rahul Mehta" required></div>
-        <div class="fg"><label>Phone Number *</label><input type="tel" placeholder="+91 98765 43210" required></div>
+        <div class="fg"><label>Phone Number *</label><input type="tel" placeholder="+91 70030 08434" required></div>
       </div>
       <div class="fg"><label>Email Address</label><input type="email" placeholder="rahul@example.com"></div>
       <div class="fg"><label>Device Model *</label><input type="text" placeholder="e.g. iPhone 15 Pro Max 256GB" required></div>
@@ -1305,7 +1306,7 @@ section,div,header,footer,nav{max-width:100%;box-sizing:border-box}
     <form class="modal-form" onsubmit="handleSellModal(event)">
       <div class="form-row">
         <div class="fg"><label>Your Name *</label><input type="text" placeholder="Rahul Mehta" required></div>
-        <div class="fg"><label>Phone Number *</label><input type="tel" placeholder="+91 98765 43210" required></div>
+        <div class="fg"><label>Phone Number *</label><input type="tel" placeholder="+91 70030 08434" required></div>
       </div>
       <div class="fg"><label>Email Address</label><input type="email" placeholder="rahul@example.com"></div>
       <div class="fg"><label>Device Type *</label>
@@ -1420,7 +1421,7 @@ section,div,header,footer,nav{max-width:100%;box-sizing:border-box}
           <form class="sell-form" onsubmit="handleSellForm(event)">
             <div class="form-row">
               <div class="fg"><label>Your Name *</label><input type="text" placeholder="Rahul Mehta" required></div>
-              <div class="fg"><label>Phone *</label><input type="tel" placeholder="+91 98765 43210" required></div>
+              <div class="fg"><label>Phone *</label><input type="tel" placeholder="+91 70030 08434" required></div>
             </div>
             <div class="fg"><label>Device &amp; Model *</label><input type="text" id="quickDeviceInput" placeholder="e.g. iPhone 14 Pro 256GB" required></div>
             <div class="fg"><label>Condition *</label>
@@ -1571,7 +1572,7 @@ section,div,header,footer,nav{max-width:100%;box-sizing:border-box}
     <form class="cform rv d2" onsubmit="handleForm(event)">
       <div class="form-row">
         <div class="fg"><label>Your Name *</label><input type="text" placeholder="Rahul Mehta" required></div>
-        <div class="fg"><label>Phone Number *</label><input type="tel" placeholder="+91 98765 43210" required></div>
+        <div class="fg"><label>Phone Number *</label><input type="tel" placeholder="+91 70030 08434" required></div>
       </div>
       <div class="fg"><label>Email Address</label><input type="email" placeholder="rahul@example.com"></div>
       <div class="fg"><label>Service Required *</label>
@@ -1783,5 +1784,133 @@ function handleForm(e){
 let lc=24;
 setInterval(()=>{if(Math.random()<.3){lc+=Math.floor(Math.random()*2)+1;const el=document.getElementById('liveCount');if(el)el.textContent=lc}},8000);
 </script>
+
+<!-- Premium WhatsApp Button -->
+<a href="https://wa.me/917003008434?text=Hello%20TechExchange"
+   class="wa-premium"
+   target="_blank">
+
+    <div class="wa-ring"></div>
+
+    <div class="wa-status"></div>
+
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+         alt="WhatsApp">
+
+    <div class="wa-tooltip">
+        <span>Chat with our team</span>
+        <small>Typically replies instantly</small>
+    </div>
+
+</a>
+
+<style>
+.wa-premium{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    width:72px;
+    height:72px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(37,211,102,.15);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.15);
+    z-index:99999;
+    transition:.4s ease;
+    box-shadow:
+        0 10px 30px rgba(37,211,102,.35),
+        0 0 40px rgba(37,211,102,.15);
+}
+
+.wa-premium:hover{
+    transform:translateY(-6px) scale(1.08);
+}
+
+.wa-premium img{
+    width:38px;
+    height:38px;
+    z-index:3;
+}
+
+.wa-ring{
+    position:absolute;
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    border:2px solid rgba(37,211,102,.5);
+    animation:ring 2s infinite;
+}
+
+@keyframes ring{
+    0%{
+        transform:scale(1);
+        opacity:1;
+    }
+    100%{
+        transform:scale(1.6);
+        opacity:0;
+    }
+}
+
+.wa-status{
+    position:absolute;
+    top:10px;
+    right:10px;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#25D366;
+    border:2px solid white;
+    z-index:5;
+    box-shadow:0 0 10px #25D366;
+}
+
+.wa-tooltip{
+    position:absolute;
+    right:90px;
+    background:rgba(15,15,15,.95);
+    backdrop-filter:blur(15px);
+    color:white;
+    padding:12px 18px;
+    border-radius:14px;
+    min-width:180px;
+    opacity:0;
+    visibility:hidden;
+    transition:.3s;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+.wa-tooltip span{
+    display:block;
+    font-size:14px;
+    font-weight:600;
+}
+
+.wa-tooltip small{
+    color:#bbb;
+    font-size:12px;
+}
+
+.wa-premium:hover .wa-tooltip{
+    opacity:1;
+    visibility:visible;
+}
+
+@media(max-width:768px){
+    .wa-premium{
+        width:65px;
+        height:65px;
+        right:15px;
+        bottom:15px;
+    }
+
+    .wa-tooltip{
+        display:none;
+    }
+}
+</style>
 </body>
 </html>
