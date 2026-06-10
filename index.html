@@ -75,7 +75,7 @@ section{position:relative;z-index:1}
 .rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}.rv.d5{transition-delay:.5s}
 
 /* ══════ HERO ══════ */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:130px 64px 90px}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:130px 64px 90px;width:100%;box-sizing:border-box}
 
 /* BG SLIDESHOW */
 .hero-slideshow{position:absolute;inset:0;z-index:0}
@@ -84,13 +84,13 @@ section{position:relative;z-index:1}
 .slide img{width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.22) saturate(1.3)}
 
 /* SIDE-BY-SIDE SLIDING PANELS */
-.hero-panels{position:absolute;inset:0;z-index:0;display:flex;overflow:hidden}
-.panel-strip{display:flex;gap:0;animation:panelScroll 28s linear infinite;will-change:transform}
+.hero-panels{position:absolute;inset:0;z-index:0;display:flex;overflow:hidden;flex-direction:column}
+.panel-strip{display:flex;gap:0;animation:panelScroll 28s linear infinite;will-change:transform;flex-shrink:0}
 .panel-strip.rev{animation:panelScrollRev 32s linear infinite;animation-delay:-8s}
-.panel-img{flex-shrink:0;width:320px;height:50vh;position:relative;margin:2px}
+.panel-img{flex-shrink:0;width:280px;height:100%;position:relative;margin:2px;overflow:hidden}
 .panel-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.28) saturate(1.2)}
-.panels-top{height:50%;display:flex;align-items:stretch}
-.panels-bot{height:50%;display:flex;align-items:stretch}
+.panels-top{height:50%;display:flex;align-items:stretch;overflow:hidden}
+.panels-bot{height:50%;display:flex;align-items:stretch;overflow:hidden}
 @keyframes panelScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 @keyframes panelScrollRev{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
 
@@ -275,28 +275,114 @@ section{position:relative;z-index:1}
 .ba-img-label{position:absolute;bottom:14px;left:14px;font-size:.78rem;font-weight:700;z-index:1;display:flex;align-items:center;gap:6px}
 .ba-label-dot{width:8px;height:8px;border-radius:50%}
 
-/* PRICING */
-.pricing-section{padding:120px 64px}
-.pricing-inner{max-width:1200px;margin:0 auto}
-.pricing-head{text-align:center;margin-bottom:56px}
-.pricing-head .sub{margin:0 auto}
-.p-tabs{display:flex;justify-content:center;gap:10px;margin-bottom:52px;flex-wrap:wrap}
-.p-tab{background:transparent;border:1px solid var(--border);color:var(--dim);padding:11px 28px;border-radius:100px;font-size:.9rem;font-weight:500;cursor:pointer;transition:all .25s}
-.p-tab.active{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 4px 18px rgba(0,113,227,.38)}
-.p-tab:not(.active):hover{border-color:rgba(255,255,255,.2);color:var(--text)}
-.p-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.p-card{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);padding:38px 32px;position:relative;transition:all .3s}
-.p-card:hover{transform:translateY(-6px);box-shadow:0 28px 70px rgba(0,0,0,.4)}
-.p-card.pop{border-color:var(--blue);background:linear-gradient(160deg,rgba(0,113,227,.12),var(--s1) 60%)}
-.pop-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;font-size:.68rem;font-weight:700;padding:5px 16px;border-radius:100px;text-transform:uppercase;letter-spacing:.07em;white-space:nowrap;box-shadow:0 4px 18px rgba(0,113,227,.5)}
-.p-card h3{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:700;margin-bottom:6px}
-.p-card .pdesc{font-size:.85rem;color:var(--dim);margin-bottom:22px}
-.p-price{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;line-height:1;margin-bottom:5px}
-.p-note{font-size:.82rem;color:var(--dim);margin-bottom:28px}
-.p-feats{list-style:none;margin-bottom:30px}
-.p-feats li{display:flex;align-items:center;gap:10px;font-size:.87rem;padding:8px 0;border-bottom:1px solid var(--border);color:var(--dim)}
-.p-feats li:last-child{border-bottom:none}
-.p-feats li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0}
+/* SERVICES CARD SECTION (replaces pricing) */
+.svc2-section{padding:120px 64px;background:var(--s1);border-top:1px solid var(--border)}
+.svc2-inner{max-width:1200px;margin:0 auto}
+.svc2-head{text-align:center;margin-bottom:60px}
+.svc2-head .sub{margin:0 auto}
+.svc2-tabs{display:flex;justify-content:center;gap:10px;margin-bottom:52px;flex-wrap:wrap}
+.svc2-tab{background:transparent;border:1px solid var(--border);color:var(--dim);padding:11px 28px;border-radius:100px;font-size:.9rem;font-weight:500;cursor:pointer;transition:all .25s}
+.svc2-tab.active{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 4px 18px rgba(0,113,227,.38)}
+.svc2-tab:not(.active):hover{border-color:rgba(255,255,255,.2);color:var(--text)}
+.svc2-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.svc2-card{background:var(--s2);border:1px solid var(--border);border-radius:var(--r);padding:0;overflow:hidden;transition:all .32s;position:relative;display:flex;flex-direction:column}
+.svc2-card:hover{transform:translateY(-8px);border-color:var(--bh);box-shadow:0 28px 70px rgba(0,0,0,.5)}
+.svc2-card.featured{border-color:rgba(41,151,255,.35);background:linear-gradient(160deg,rgba(0,113,227,.1),var(--s2) 60%)}
+.svc2-img{height:180px;position:relative;overflow:hidden;flex-shrink:0}
+.svc2-img img{transition:transform .5s}
+.svc2-card:hover .svc2-img img{transform:scale(1.06)}
+.svc2-img-tag{position:absolute;top:12px;left:12px;background:rgba(7,7,15,.82);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:5px 13px;font-size:.7rem;font-weight:700;color:var(--bluel);text-transform:uppercase;letter-spacing:.06em}
+.svc2-img-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(7,7,15,.85))}
+.svc2-body{padding:26px 26px 30px;flex:1;display:flex;flex-direction:column}
+.svc2-icon-row{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.svc2-icon{width:42px;height:42px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.35rem;flex-shrink:0}
+.svc2-badge{font-size:.68rem;font-weight:700;padding:3px 11px;border-radius:100px;text-transform:uppercase;letter-spacing:.06em}
+.svc2-card h3{font-family:'Syne',sans-serif;font-size:1.18rem;font-weight:700;letter-spacing:-.02em;margin-bottom:10px}
+.svc2-card p{font-size:.88rem;color:var(--dim);line-height:1.72;font-weight:300;flex:1;margin-bottom:16px}
+.svc2-feats{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:22px}
+.svc2-feats li{font-size:.82rem;color:var(--dim);display:flex;align-items:center;gap:8px}
+.svc2-feats li::before{content:'✓';color:var(--green);font-weight:700;font-size:.8rem;flex-shrink:0}
+.svc2-btn{background:var(--blue);color:#fff;border:none;padding:13px 24px;border-radius:100px;font-size:.9rem;font-weight:600;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:all .25s;box-shadow:0 4px 18px rgba(0,113,227,.3);cursor:pointer;width:100%}
+.svc2-btn:hover{background:var(--bluel);transform:translateY(-2px);box-shadow:0 10px 30px rgba(41,151,255,.4)}
+
+/* SELL YOUR DEVICE SECTION */
+.sell-section{padding:120px 64px;background:var(--bg);border-top:1px solid var(--border)}
+.sell-inner{max-width:1200px;margin:0 auto}
+.sell-head{text-align:center;margin-bottom:64px}
+.sell-head .sub{margin:0 auto}
+.sell-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-bottom:70px}
+.sell-left{}
+.sell-highlight{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,rgba(245,197,66,.12),rgba(255,159,10,.08));border:1px solid rgba(245,197,66,.3);border-radius:100px;padding:8px 20px;font-size:.8rem;font-weight:700;color:var(--gold);margin-bottom:24px}
+.sell-left h2{font-family:'Syne',sans-serif;font-size:clamp(1.9rem,3.5vw,3rem);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:16px}
+.sell-left p{font-size:1rem;color:var(--dim);line-height:1.78;font-weight:300;margin-bottom:28px}
+.sell-perks{display:flex;flex-direction:column;gap:14px;margin-bottom:32px}
+.sell-perk{display:flex;align-items:flex-start;gap:14px;background:var(--s1);border:1px solid var(--border);border-radius:var(--rs);padding:16px 18px;transition:border-color .25s}
+.sell-perk:hover{border-color:var(--bh)}
+.sp-icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.sp-title{font-size:.9rem;font-weight:600;margin-bottom:3px}
+.sp-desc{font-size:.8rem;color:var(--dim);line-height:1.55}
+.sell-right{}
+.sell-devices{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+.sell-device-card{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);padding:0;overflow:hidden;transition:all .3s;cursor:pointer;position:relative}
+.sell-device-card:hover{border-color:var(--bh);transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.sell-device-card.active-dev{border-color:var(--blue);box-shadow:0 0 0 2px rgba(0,113,227,.3),0 16px 40px rgba(0,0,0,.4)}
+.sdc-img{height:130px;position:relative;overflow:hidden}
+.sdc-img img{transition:transform .5s}
+.sell-device-card:hover .sdc-img img{transform:scale(1.07)}
+.sdc-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 30%,rgba(7,7,15,.88))}
+.sdc-body{padding:14px 16px 18px}
+.sdc-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:4px}
+.sdc-sub{font-size:.75rem;color:var(--dim)}
+.sdc-value{font-size:.8rem;color:var(--green);font-weight:600;margin-top:6px}
+.sell-device-card .sdc-check{position:absolute;top:10px;right:10px;width:24px;height:24px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;opacity:0;transition:opacity .2s}
+.sell-device-card.active-dev .sdc-check{opacity:1}
+.sell-form-box{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);padding:30px 28px}
+.sfb-title{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.sell-form{display:flex;flex-direction:column;gap:14px}
+.sell-form .fg input,.sell-form .fg select,.sell-form .fg textarea{background:var(--bg)}
+
+/* HOW SELL WORKS */
+.sell-steps{margin-top:0}
+.sell-steps-title{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:700;text-align:center;margin-bottom:40px;letter-spacing:-.02em}
+.sell-steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+.sell-steps-grid::before{content:'';position:absolute;top:36px;left:12.5%;right:12.5%;height:1px;background:linear-gradient(90deg,transparent,var(--gold) 20%,var(--gold) 80%,transparent)}
+.sell-step{text-align:center;padding:0 12px;position:relative;z-index:1}
+.sell-step-num{width:72px;height:72px;border-radius:50%;background:var(--s1);border:1.5px solid rgba(245,197,66,.35);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--gold);transition:all .35s}
+.sell-step:hover .sell-step-num{background:rgba(245,197,66,.12);box-shadow:0 0 0 6px rgba(245,197,66,.1),0 0 30px rgba(245,197,66,.2)}
+.sell-step h4{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:8px}
+.sell-step p{font-size:.82rem;color:var(--dim);line-height:1.6;font-weight:300}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;z-index:800;background:rgba(7,7,15,.88);backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal-box{background:var(--s1);border:1px solid rgba(255,255,255,.1);border-radius:28px;padding:44px 40px;width:100%;max-width:560px;position:relative;transform:translateY(30px) scale(.97);transition:transform .35s ease,opacity .3s;max-height:90vh;overflow-y:auto}
+.modal-overlay.open .modal-box{transform:translateY(0) scale(1)}
+.modal-close{position:absolute;top:18px;right:18px;width:36px;height:36px;background:var(--s2);border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;transition:all .2s;color:var(--dim)}
+.modal-close:hover{background:rgba(255,69,58,.15);border-color:var(--red);color:var(--red)}
+.modal-box h3{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;letter-spacing:-.03em;margin-bottom:6px}
+.modal-box .modal-sub{font-size:.9rem;color:var(--dim);margin-bottom:28px;font-weight:300}
+.modal-form{display:flex;flex-direction:column;gap:14px}
+.modal-service-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(41,151,255,.1);border:1px solid rgba(41,151,255,.25);border-radius:100px;padding:5px 14px;font-size:.75rem;font-weight:600;color:var(--bluel);margin-bottom:18px}
+.modal-form .fg input,.modal-form .fg select,.modal-form .fg textarea{background:var(--bg)}
+
+@media(max-width:1100px){
+  .svc2-grid{grid-template-columns:1fr 1fr}
+  .sell-grid{grid-template-columns:1fr}
+  .sell-steps-grid{grid-template-columns:repeat(2,1fr)}
+  .sell-steps-grid::before{display:none}
+}
+@media(max-width:768px){
+  .svc2-section{padding:80px 20px}
+  .sell-section{padding:80px 20px}
+  .svc2-grid{grid-template-columns:1fr}
+  .sell-devices{grid-template-columns:1fr 1fr}
+  .sell-steps-grid{grid-template-columns:1fr 1fr}
+  .modal-box{padding:30px 22px}
+}
+@media(max-width:480px){
+  .sell-devices{grid-template-columns:1fr 1fr}
+  .sell-steps-grid{grid-template-columns:1fr}
+}
 
 /* REVIEWS */
 .reviews-section{padding:120px 64px;background:var(--s1);border-top:1px solid var(--border)}
@@ -405,17 +491,26 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* ═══════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE — FULLY FIXED
 ═══════════════════════════════════ */
+
+/* Prevent ALL overflow globally */
+html,body{max-width:100vw;overflow-x:hidden}
+section,div,header,footer,nav{max-width:100%;box-sizing:border-box}
+
+/* ── 1100px ── */
 @media(max-width:1100px){
   nav,nav.sc{padding:18px 32px}
   .hero{padding:110px 32px 80px}
-  .hero-inner{grid-template-columns:1fr;gap:50px}
-  .hero-right{height:400px}
+  .hero-inner{grid-template-columns:1fr;gap:40px}
+  .hero-right{height:380px}
+  .orb{display:none}
   .stats-bar{padding:36px 32px}
   .stats-inner{grid-template-columns:repeat(2,1fr);gap:30px}
   .stat+.stat::before{display:none}
-  .services-section,.devices-section,.apple-section,.how-section,.why-section,.ba-section,.pricing-section,.reviews-section,.gallery-section,.faq-section,.cta-section,.contact-section,footer{padding-left:32px;padding-right:32px}
+  .services-section,.devices-section,.apple-section,.how-section,.why-section,.ba-section,
+  .svc2-section,.sell-section,.reviews-section,.gallery-section,.faq-section,
+  .cta-section,.contact-section,footer{padding-left:32px;padding-right:32px}
   .svc-grid{grid-template-columns:repeat(2,1fr)}
   .svc-card.feat{grid-row:auto}
   .dev-content.active{grid-template-columns:1fr}
@@ -429,67 +524,204 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
   .how-imgs{grid-template-columns:1fr 1fr}
   .why-grid{grid-template-columns:repeat(2,1fr)}
   .ba-inner{grid-template-columns:1fr}
-  .p-cards{grid-template-columns:1fr;max-width:420px;margin:0 auto}
+  .svc2-grid{grid-template-columns:1fr 1fr}
+  .sell-grid{grid-template-columns:1fr}
+  .sell-steps-grid{grid-template-columns:repeat(2,1fr)}
+  .sell-steps-grid::before{display:none}
   .rev-grid{columns:2}
   .gallery-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:auto}
   .g-item.big{grid-column:span 2;grid-row:auto}
   .g-item.tall{grid-row:auto}
   .contact-inner{grid-template-columns:1fr}
   .footer-top{grid-template-columns:1fr 1fr;gap:40px}
-  .panel-img{width:220px}
+  .panel-img{width:200px;height:100%}
 }
+
+/* ── 768px ── */
 @media(max-width:768px){
-  nav,nav.sc{padding:15px 20px}
+  /* NAV */
+  nav,nav.sc{padding:14px 18px}
   .nav-links,.nav-phone,.btn-nav{display:none}
   .hamburger{display:flex}
-  .hero{padding:90px 20px 60px}
-  .hero-h1{font-size:2.5rem}
-  .hero-p{font-size:1rem}
-  .hero-right{height:300px}
-  .img-card.main{width:80%;height:65%}
-  .img-card.side1{width:52%;height:44%}
-  .img-card.side2{display:none}
-  .fc1,.fc2{display:none}
-  .stats-bar{padding:28px 20px}
-  .stats-inner{grid-template-columns:repeat(2,1fr);gap:20px}
-  .stat-n{font-size:2rem}
-  .services-section,.devices-section,.apple-section,.how-section,.why-section,.ba-section,.pricing-section,.reviews-section,.gallery-section,.faq-section,.cta-section,.contact-section,footer{padding-left:20px;padding-right:20px}
+
+  /* HERO — core fix */
+  .hero{padding:80px 16px 60px;min-height:auto}
+  .hero-inner{grid-template-columns:1fr;gap:32px;width:100%;overflow:hidden}
+  .hero-left{width:100%;overflow:hidden}
+  .hero-h1{font-size:clamp(1.9rem,7vw,2.6rem);word-break:break-word}
+  .hero-p{font-size:.95rem;max-width:100%}
+  .hero-actions{flex-direction:column;align-items:stretch;gap:10px}
+  .btn-p,.btn-s{justify-content:center;width:100%;padding:13px 20px;font-size:.95rem}
+  .hero-trust{gap:10px;flex-wrap:wrap}
+  .htrust-item{font-size:.75rem}
+  .badge{font-size:.72rem;padding:6px 14px}
+
+  /* Hero right — image stack safe on mobile */
+  .hero-right{height:260px;width:100%;overflow:hidden}
+  .img-stack{overflow:hidden}
+  .img-card.main{width:85%;height:70%;top:0;right:0;left:auto}
+  .img-card.side1{width:50%;height:46%;bottom:0;left:0}
+  .img-card.side2,.fc1,.fc2{display:none}
+  .img-badge{padding:8px 10px;gap:8px}
+  .ibadge-icon{width:28px;height:28px;font-size:.85rem}
+  .ibadge-text{font-size:.68rem}
+  .ibadge-sub{font-size:.62rem}
+
+  /* Background panels — hide on mobile (heavy) */
+  .hero-panels{display:none}
+  /* Fallback solid BG */
+  .hero{background:linear-gradient(135deg,#07070f 0%,#0d1020 60%,#07070f 100%)}
+  .orb{display:none}
+
+  /* STATS */
+  .stats-bar{padding:24px 16px}
+  .stats-inner{grid-template-columns:repeat(2,1fr);gap:16px}
+  .stat{padding:0 8px}
+  .stat-n{font-size:1.8rem}
+  .stat-l{font-size:.72rem}
+
+  /* All section paddings */
+  .services-section,.devices-section,.apple-section,.how-section,.why-section,.ba-section,
+  .svc2-section,.sell-section,.reviews-section,.gallery-section,.faq-section,
+  .cta-section,.contact-section,footer{padding-left:16px;padding-right:16px}
+  .services-section,.how-section,.svc2-section,.sell-section,.pricing-section{padding-top:70px;padding-bottom:70px}
+  .devices-section,.apple-section,.why-section,.ba-section,.reviews-section{padding-top:70px;padding-bottom:70px}
+  .gallery-section,.faq-section{padding-top:60px;padding-bottom:60px}
+
+  /* SERVICES GRID */
   .svc-grid{grid-template-columns:1fr}
-  .svc-img{height:180px}
-  .dev-tabs{gap:8px}
-  .dev-tab{padding:9px 18px;font-size:.82rem}
-  .dev-img-wrap{height:260px}
+  .svc-img{height:170px}
+  .svc-card.feat{grid-row:auto}
+
+  /* DEVICES */
+  .dev-tabs{gap:6px;padding:0 4px}
+  .dev-tab{padding:8px 14px;font-size:.78rem}
+  .dev-content.active{grid-template-columns:1fr;gap:28px}
+  .dev-img-wrap{height:240px}
   .dev-specs{grid-template-columns:1fr 1fr}
-  .apple-main-img{height:280px}
-  .apple-prod-grid{grid-template-columns:1fr}
-  .steps-row{grid-template-columns:1fr 1fr}
+  .dev-info h3{font-size:1.6rem}
+
+  /* APPLE */
+  .apple-inner{grid-template-columns:1fr;gap:36px}
+  .apple-main-img{height:260px}
+  .apple-prod-grid{grid-template-columns:1fr 1fr}
+
+  /* HOW */
+  .steps-row{grid-template-columns:1fr 1fr;gap:20px}
+  .steps-row::before{display:none}
+  .step{margin-bottom:0;padding:0 8px}
+  .step-num{width:66px;height:66px;font-size:1.2rem}
   .how-imgs{grid-template-columns:1fr}
   .how-imgs .how-img-card:not(:first-child){display:none}
-  .why-grid{grid-template-columns:1fr 1fr}
-  .ba-imgs{grid-template-columns:1fr}
-  .ba-imgs .ba-img-block:not(:first-child){display:none}
-  .rev-grid{columns:1}
-  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
-  .g-item.big{grid-column:span 2}
-  .form-row{grid-template-columns:1fr}
-  .footer-top{grid-template-columns:1fr;gap:32px}
-  .footer-bottom{flex-direction:column;text-align:center;gap:18px}
-  .rating-row{flex-direction:column;align-items:center}
+
+  /* WHY */
+  .why-grid{grid-template-columns:1fr 1fr;gap:14px}
+  .why-card{padding:22px 18px}
+
+  /* PROMISE */
+  .ba-inner{grid-template-columns:1fr;gap:36px}
+  .ba-imgs{grid-template-columns:1fr 1fr}
+  .ba-imgs .ba-img-block:nth-child(n+3){display:none}
+
+  /* SVC2 (our services) */
+  .svc2-section{padding-left:16px;padding-right:16px}
+  .svc2-grid{grid-template-columns:1fr}
+  .svc2-tabs{gap:6px}
+  .svc2-tab{padding:8px 16px;font-size:.82rem}
+
+  /* SELL */
+  .sell-section{padding-left:16px;padding-right:16px}
+  .sell-grid{grid-template-columns:1fr;gap:40px}
+  .sell-devices{grid-template-columns:1fr 1fr;gap:12px}
+  .sdc-img{height:110px}
+  .sell-steps-grid{grid-template-columns:1fr 1fr;gap:20px}
+  .sell-steps-grid::before{display:none}
+  .sell-form-box{padding:22px 18px}
+
+  /* REVIEWS */
+  .rev-grid{columns:1;gap:0}
+  .rating-row{flex-direction:column;align-items:center;gap:20px}
   .rating-bars{max-width:100%;width:100%}
-  .hero-trust{gap:14px}
-  .cta-section{padding-top:80px;padding-bottom:80px}
-  .cta-section h2{font-size:2.2rem}
-  .panel-img{width:160px}
+  .rating-num{font-size:3rem}
+
+  /* GALLERY */
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;gap:10px}
+  .g-item.big{grid-column:span 2}
+  .g-item.tall{grid-row:auto}
+
+  /* CTA */
+  .cta-section{padding:70px 16px}
+  .cta-section h2{font-size:2rem}
+  .cta-section p{font-size:.95rem}
+  .cta-actions{flex-direction:column;align-items:center;gap:10px}
+  .cta-actions .btn-p,.cta-actions .btn-s{width:100%;max-width:320px;justify-content:center}
+
+  /* CONTACT */
+  .contact-inner{grid-template-columns:1fr;gap:40px}
+  .form-row{grid-template-columns:1fr}
+
+  /* FOOTER */
+  .footer-top{grid-template-columns:1fr;gap:28px}
+  footer{padding:50px 16px 28px}
+  .footer-bottom{flex-direction:column;text-align:center;gap:14px}
+
+  /* MODAL */
+  .modal-box{padding:28px 18px;border-radius:20px}
+  .modal-box h3{font-size:1.3rem}
+  .modal-form .form-row{grid-template-columns:1fr}
 }
+
+/* ── 480px ── */
 @media(max-width:480px){
-  .hero-h1{font-size:2.1rem}
-  .stats-inner{grid-template-columns:1fr 1fr}
-  .why-grid{grid-template-columns:1fr}
+  /* Hero text tighter */
+  .hero{padding:75px 14px 50px}
+  .hero-h1{font-size:1.85rem;line-height:1.05}
+  .hero-right{height:220px}
+  .img-card.main{width:90%;height:72%}
+  .img-card.side1{display:none}
+
+  /* Stats */
+  .stat-n{font-size:1.6rem}
+
+  /* Steps single column */
   .steps-row{grid-template-columns:1fr}
-  .dev-specs{grid-template-columns:1fr 1fr}
-  .hero-actions{flex-direction:column;align-items:stretch}
-  .btn-p,.btn-s{justify-content:center}
-  .panel-img{width:130px}
+  .step{padding:0}
+
+  /* Why 1 col */
+  .why-grid{grid-template-columns:1fr}
+
+  /* Sell */
+  .sell-steps-grid{grid-template-columns:1fr}
+  .sell-devices{grid-template-columns:1fr 1fr}
+
+  /* Svc2 */
+  .svc2-tabs{flex-direction:column;align-items:center}
+  .svc2-tab{width:100%;max-width:280px;text-align:center}
+
+  /* Apple */
+  .apple-prod-grid{grid-template-columns:1fr}
+
+  /* Footer */
+  .footer-top{grid-template-columns:1fr}
+  .f-badge{font-size:.68rem;padding:6px 10px}
+  .footer-badge-row{gap:6px}
+
+  /* Trust items wrap cleanly */
+  .hero-trust{flex-direction:column;gap:8px}
+  .htrust-item{font-size:.75rem}
+}
+
+/* ── 375px (iPhone SE) ── */
+@media(max-width:375px){
+  .hero{padding:72px 12px 44px}
+  .hero-h1{font-size:1.7rem}
+  .badge{font-size:.68rem;padding:5px 12px;white-space:normal;text-align:center;border-radius:14px}
+  .stat-n{font-size:1.4rem}
+  .sell-devices{grid-template-columns:1fr 1fr}
+  .sdc-img{height:90px}
+  nav,nav.sc{padding:12px 14px}
+  .logo{font-size:1.1rem}
+  .logo-icon{width:32px;height:32px}
 }
 </style>
 </head>
@@ -502,7 +734,8 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
   <a href="#services" onclick="closeDrawer()">Services</a>
   <a href="#devices" onclick="closeDrawer()">Devices</a>
   <a href="#how" onclick="closeDrawer()">How It Works</a>
-  <a href="#pricing" onclick="closeDrawer()">Pricing</a>
+  <a href="#pricing" onclick="closeDrawer()">Our Services</a>
+  <a href="#sell" onclick="closeDrawer()">💰 Sell Device</a>
   <a href="#contact" onclick="closeDrawer()">Contact</a>
   <button class="btn-nav" onclick="closeDrawer();scrollTo('contact')">Get Free Quote</button>
 </div>
@@ -519,7 +752,8 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
     <li><a href="#services">Services</a></li>
     <li><a href="#devices">Devices</a></li>
     <li><a href="#how">How It Works</a></li>
-    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#pricing">Our Services</a></li>
+    <li><a href="#sell">Sell Device</a></li>
     <li><a href="#reviews">Reviews</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -983,20 +1217,227 @@ footer{padding:72px 64px 38px;border-top:1px solid var(--border)}
   </div>
 </section>
 
-<!-- PRICING -->
-<section class="pricing-section" id="pricing">
-  <div class="pricing-inner">
-    <div class="pricing-head rv">
-      <div class="section-label">Transparent Pricing</div>
-      <h2 class="title">No Hidden Fees. Ever.</h2>
-      <p class="sub">Clear, upfront pricing for every service. What you see is exactly what you pay — not a rupee more.</p>
+<!-- CONTACT MODAL -->
+<div class="modal-overlay" id="contactModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3 id="modalTitle">Get a Free Quote</h3>
+    <p class="modal-sub" id="modalSub">Tell us about your device and we'll get back to you within minutes.</p>
+    <div class="modal-service-tag" id="modalTag">🔧 Service Inquiry</div>
+    <form class="modal-form" onsubmit="handleModalForm(event)">
+      <div class="form-row">
+        <div class="fg"><label>Your Name *</label><input type="text" placeholder="Rahul Mehta" required></div>
+        <div class="fg"><label>Phone Number *</label><input type="tel" placeholder="+91 98765 43210" required></div>
+      </div>
+      <div class="fg"><label>Email Address</label><input type="email" placeholder="rahul@example.com"></div>
+      <div class="fg"><label>Device Model *</label><input type="text" placeholder="e.g. iPhone 15 Pro Max 256GB" required></div>
+      <div class="fg"><label>Service Needed *</label>
+        <select id="modalService" required>
+          <option value="" disabled selected>Select a service...</option>
+          <optgroup label="Repair Services">
+            <option>Screen Replacement</option>
+            <option>Battery Replacement</option>
+            <option>Charging Port Repair</option>
+            <option>Camera Repair</option>
+            <option>Water Damage Repair</option>
+            <option>Logic Board / Motherboard Repair</option>
+            <option>Keyboard Replacement (MacBook)</option>
+            <option>Data Recovery</option>
+            <option>Software / OS Issue</option>
+          </optgroup>
+          <optgroup label="Exchange Program">
+            <option>Sell / Exchange My Device</option>
+            <option>Upgrade Trade-In</option>
+            <option>Bulk Device Exchange</option>
+          </optgroup>
+          <option>Not Sure — Need Diagnosis</option>
+        </select>
+      </div>
+      <div class="fg"><label>Describe Your Issue</label><textarea placeholder="Tell us more about the problem — how it happened, what symptoms you notice..." style="min-height:90px"></textarea></div>
+      <div class="fg"><label>Preferred Contact Time</label>
+        <select>
+          <option>Any time (10am–8pm)</option>
+          <option>Morning (10am–12pm)</option>
+          <option>Afternoon (12pm–4pm)</option>
+          <option>Evening (4pm–8pm)</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-p" style="width:100%;justify-content:center;margin-top:4px">Send &amp; Get Free Quote →</button>
+    </form>
+  </div>
+</div>
+
+<!-- SELL MODAL -->
+<div class="modal-overlay" id="sellModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeSellModal()">✕</button>
+    <h3>Sell Your Device</h3>
+    <p class="modal-sub">Get an instant quote. Our team evaluates your device and responds within 30 minutes.</p>
+    <div class="modal-service-tag">💰 Best Price Guaranteed</div>
+    <form class="modal-form" onsubmit="handleSellModal(event)">
+      <div class="form-row">
+        <div class="fg"><label>Your Name *</label><input type="text" placeholder="Rahul Mehta" required></div>
+        <div class="fg"><label>Phone Number *</label><input type="tel" placeholder="+91 98765 43210" required></div>
+      </div>
+      <div class="fg"><label>Email Address</label><input type="email" placeholder="rahul@example.com"></div>
+      <div class="fg"><label>Device Type *</label>
+        <select required>
+          <option value="" disabled selected>Select device type...</option>
+          <option>iPhone</option><option>iPad</option><option>MacBook</option>
+          <option>Android Smartphone</option><option>Windows Laptop</option>
+          <option>Tablet (Non-Apple)</option><option>Other</option>
+        </select>
+      </div>
+      <div class="fg"><label>Device Model &amp; Storage *</label><input type="text" placeholder="e.g. iPhone 14 Pro 256GB" required></div>
+      <div class="fg"><label>Device Condition *</label>
+        <select required>
+          <option value="" disabled selected>Select condition...</option>
+          <option>Like New — No scratches, perfect working</option>
+          <option>Good — Minor scratches, fully working</option>
+          <option>Fair — Visible scratches/dents, fully working</option>
+          <option>Broken Screen — Working otherwise</option>
+          <option>Not Turning On / Dead</option>
+          <option>Water Damaged</option>
+          <option>Other Issues — I'll describe below</option>
+        </select>
+      </div>
+      <div class="fg"><label>Battery Health (if known)</label><input type="text" placeholder="e.g. 87% (check Settings > Battery)"></div>
+      <div class="fg"><label>Additional Details</label><textarea placeholder="Any other info — accessories included, original box, known issues..." style="min-height:80px"></textarea></div>
+      <button type="submit" class="btn-p" style="width:100%;justify-content:center;margin-top:4px;background:linear-gradient(135deg,#c9922a,var(--gold))">Get My Free Quote →</button>
+    </form>
+  </div>
+</div>
+
+<!-- SERVICES / WHAT WE OFFER -->
+<section class="svc2-section" id="pricing">
+  <div class="svc2-inner">
+    <div class="svc2-head rv">
+      <div class="section-label">Our Services</div>
+      <h2 class="title">What We Offer</h2>
+      <p class="sub">Expert repairs, instant device exchange, data recovery and more — all backed by our 6-month warranty. Contact us for a free quote on any service.</p>
     </div>
-    <div class="p-tabs">
-      <button class="p-tab active" onclick="switchPricing('mobile')">📱 Mobile Repair</button>
-      <button class="p-tab" onclick="switchPricing('laptop')">💻 Laptop / MacBook</button>
-      <button class="p-tab" onclick="switchPricing('exchange')">🔄 Exchange Program</button>
+    <div class="svc2-tabs">
+      <button class="svc2-tab active" onclick="switchSvc2('repair')">🔧 Repair Services</button>
+      <button class="svc2-tab" onclick="switchSvc2('exchange')">🔄 Exchange</button>
+      <button class="svc2-tab" onclick="switchSvc2('recovery')">💾 Data &amp; More</button>
     </div>
-    <div class="p-cards rv" id="pCards"></div>
+    <div id="svc2Grid" class="svc2-grid rv"></div>
+  </div>
+</section>
+
+<!-- SELL YOUR DEVICE -->
+<section class="sell-section" id="sell">
+  <div class="sell-inner">
+    <div class="sell-head rv">
+      <div class="section-label">Sell &amp; Exchange</div>
+      <h2 class="title">Sell Your Mobile<br>&amp; Laptop Today</h2>
+      <p class="sub">Get the best price in Kolkata for your old device — instant cash, no haggling, no waiting. We buy all brands, all conditions.</p>
+    </div>
+
+    <div class="sell-grid">
+      <!-- LEFT: Why sell with us -->
+      <div class="sell-left rv">
+        <div class="sell-highlight">💰 Kolkata's Best Buyback Prices — Guaranteed</div>
+        <h2 style="font-family:'Syne',sans-serif;font-size:clamp(1.7rem,3vw,2.6rem);font-weight:800;letter-spacing:-.04em;line-height:1.06;margin-bottom:14px">Turn Your Old Device<br>Into Instant Cash</h2>
+        <p>Whether it's a broken screen iPhone, a dead MacBook, or a perfectly working Android — we buy it all. Our expert appraisers use live market data to give you the maximum value, every time.</p>
+        <div class="sell-perks">
+          <div class="sell-perk">
+            <div class="sp-icon" style="background:rgba(48,209,88,.14);border:1px solid rgba(48,209,88,.25)">⚡</div>
+            <div><div class="sp-title">Instant Evaluation — 30 Minutes</div><div class="sp-desc">Walk in and get your device evaluated on the spot. No waiting, no appointments needed for most devices.</div></div>
+          </div>
+          <div class="sell-perk">
+            <div class="sp-icon" style="background:rgba(245,197,66,.14);border:1px solid rgba(245,197,66,.25)">💰</div>
+            <div><div class="sp-title">15% Above Market Rate</div><div class="sp-desc">Our high-volume buying power means we consistently beat competitor offers by 10–25%. Show us a better quote — we'll match or beat it.</div></div>
+          </div>
+          <div class="sell-perk">
+            <div class="sp-icon" style="background:rgba(41,151,255,.14);border:1px solid rgba(41,151,255,.25)">🏦</div>
+            <div><div class="sp-title">Same-Day Cash or Bank Transfer</div><div class="sp-desc">Get paid immediately — cash on the spot or instant bank transfer. No waiting, no cheques.</div></div>
+          </div>
+          <div class="sell-perk">
+            <div class="sp-icon" style="background:rgba(191,90,242,.14);border:1px solid rgba(191,90,242,.25)">🔄</div>
+            <div><div class="sp-title">All Brands &amp; All Conditions</div><div class="sp-desc">Dead, broken screen, water-damaged, or mint condition — we accept everything. The condition only affects the price, never our willingness to buy.</div></div>
+          </div>
+        </div>
+        <button class="btn-p" style="background:linear-gradient(135deg,#b87d1c,var(--gold));box-shadow:0 6px 28px rgba(245,197,66,.3)" onclick="openSellModal()">💰 Get My Device Quote →</button>
+      </div>
+
+      <!-- RIGHT: Device cards + form -->
+      <div class="sell-right rv d2">
+        <p style="font-size:.82rem;color:var(--dim);font-weight:500;margin-bottom:16px;text-transform:uppercase;letter-spacing:.08em">We buy all these devices</p>
+        <div class="sell-devices">
+          <div class="sell-device-card active-dev" onclick="selectDevice(this,'iPhone')">
+            <div class="sdc-img"><img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=400&q=70" alt="iPhone"></div>
+            <div class="sdc-body"><div class="sdc-title">iPhone</div><div class="sdc-sub">All models • Any condition</div><div class="sdc-value">Up to ₹1,20,000</div></div>
+            <div class="sdc-check">✓</div>
+          </div>
+          <div class="sell-device-card" onclick="selectDevice(this,'MacBook')">
+            <div class="sdc-img"><img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&q=70" alt="MacBook"></div>
+            <div class="sdc-body"><div class="sdc-title">MacBook</div><div class="sdc-sub">All models • Any condition</div><div class="sdc-value">Up to ₹1,20,000</div></div>
+            <div class="sdc-check">✓</div>
+          </div>
+          <div class="sell-device-card" onclick="selectDevice(this,'iPad')">
+            <div class="sdc-img"><img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&q=70" alt="iPad"></div>
+            <div class="sdc-body"><div class="sdc-title">iPad</div><div class="sdc-sub">All generations</div><div class="sdc-value">Up to ₹60,000</div></div>
+            <div class="sdc-check">✓</div>
+          </div>
+          <div class="sell-device-card" onclick="selectDevice(this,'Android / Laptop')">
+            <div class="sdc-img"><img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&q=70" alt="Android"></div>
+            <div class="sdc-body"><div class="sdc-title">Android &amp; Laptops</div><div class="sdc-sub">Samsung, Dell, HP &amp; more</div><div class="sdc-value">Up to ₹80,000</div></div>
+            <div class="sdc-check">✓</div>
+          </div>
+        </div>
+        <!-- Quick quote form box -->
+        <div class="sell-form-box">
+          <div class="sfb-title">📋 Quick Quote Request</div>
+          <form class="sell-form" onsubmit="handleSellForm(event)">
+            <div class="form-row">
+              <div class="fg"><label>Your Name *</label><input type="text" placeholder="Rahul Mehta" required></div>
+              <div class="fg"><label>Phone *</label><input type="tel" placeholder="+91 98765 43210" required></div>
+            </div>
+            <div class="fg"><label>Device &amp; Model *</label><input type="text" id="quickDeviceInput" placeholder="e.g. iPhone 14 Pro 256GB" required></div>
+            <div class="fg"><label>Condition *</label>
+              <select required>
+                <option value="" disabled selected>Select condition...</option>
+                <option>Like New — Perfect condition</option>
+                <option>Good — Minor scratches, fully working</option>
+                <option>Fair — Visible wear, fully working</option>
+                <option>Broken Screen — Otherwise working</option>
+                <option>Dead / Not Turning On</option>
+                <option>Water Damaged</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-p" style="background:linear-gradient(135deg,#b87d1c,var(--gold));box-shadow:0 4px 18px rgba(245,197,66,.28);width:100%;justify-content:center">Get Instant Quote →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- How selling works -->
+    <div class="sell-steps rv">
+      <div class="sell-steps-title">How Selling Works — 4 Simple Steps</div>
+      <div class="sell-steps-grid">
+        <div class="sell-step rv">
+          <div class="sell-step-num">01</div>
+          <h4>Submit Your Details</h4>
+          <p>Fill in our quick form with your device model and condition. Takes under 2 minutes — no account needed.</p>
+        </div>
+        <div class="sell-step rv d1">
+          <div class="sell-step-num">02</div>
+          <h4>Get Instant Quote</h4>
+          <p>Our team responds within 30 minutes with your best offer. We use live market data — no lowballing, ever.</p>
+        </div>
+        <div class="sell-step rv d2">
+          <div class="sell-step-num">03</div>
+          <h4>Visit or We Pick Up</h4>
+          <p>Walk into our Park Street store or, for bulk orders (5+ devices), we come to you — free of charge anywhere in Kolkata.</p>
+        </div>
+        <div class="sell-step rv d3">
+          <div class="sell-step-num">04</div>
+          <h4>Get Paid Instantly</h4>
+          <p>Cash on spot or same-day bank transfer. No waiting, no cheques. Your money in hand within the hour.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1176,14 +1617,12 @@ const cur=document.getElementById('cur'),ring=document.getElementById('ring');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
 (function ar(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(ar)})();
-document.querySelectorAll('a,button,.svc-card,.rev-card,.why-card,.dev-spec,.apr-item').forEach(el=>{
+document.querySelectorAll('a,button,.svc-card,.rev-card,.why-card,.dev-spec,.apr-item,.sell-device-card').forEach(el=>{
   el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';ring.style.width='54px';ring.style.height='54px'});
   el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='36px';ring.style.height='36px'});
 });
-
 // NAV SCROLL
 window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',scrollY>50));
-
 // DRAWER
 let drawerOpen=false;
 function toggleDrawer(){
@@ -1195,101 +1634,123 @@ function toggleDrawer(){
   else{s.forEach(x=>{x.style.transform='';x.style.opacity=''})}
 }
 function closeDrawer(){if(drawerOpen)toggleDrawer()}
-
-// SCROLL TO
 function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
-
 // REVEAL
-const rvObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});
-},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+const rvObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
 document.querySelectorAll('.rv').forEach(el=>rvObs.observe(el));
-
 // COUNT UP
 function countUp(el,t,suf){
   let v=0;const dur=2000,step=t/(dur/16);
-  const tmr=setInterval(()=>{
-    v=Math.min(v+step,t);
-    el.textContent=(suf==='+'?Math.floor(v).toLocaleString():Math.floor(v))+suf;
-    if(v>=t){el.textContent=(suf==='+'?t.toLocaleString():t)+suf;clearInterval(tmr)}
-  },16);
+  const tmr=setInterval(()=>{v=Math.min(v+step,t);el.textContent=(suf==='+'?Math.floor(v).toLocaleString():Math.floor(v))+suf;if(v>=t){el.textContent=(suf==='+'?t.toLocaleString():t)+suf;clearInterval(tmr)}},16);
 }
-const cObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      const el=e.target,t=parseInt(el.dataset.t);
-      const suf=t>100?'+':t===99?'%':'+';
-      countUp(el,t,suf);cObs.unobserve(el);
-    }
-  });
-},{threshold:.5});
+const cObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const el=e.target,t=parseInt(el.dataset.t);const suf=t>100?'+':t===99?'%':'+';countUp(el,t,suf);cObs.unobserve(el);}});},{threshold:.5});
 document.querySelectorAll('[data-t]').forEach(el=>cObs.observe(el));
-
-// SERVICE CARD GLOW
-document.querySelectorAll('.svc-card').forEach(c=>{
-  c.addEventListener('mousemove',e=>{
-    const r=c.getBoundingClientRect();
-    c.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
-    c.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
-  });
-});
-
+// GLOW
+document.querySelectorAll('.svc-card').forEach(c=>{c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');c.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');});});
 // DEVICE TABS
 function switchDev(tab){
   document.querySelectorAll('.dev-tab').forEach((b,i)=>b.classList.toggle('active',['iphone','ipad','macbook'][i]===tab));
   document.querySelectorAll('.dev-content').forEach(c=>c.classList.remove('active'));
   document.getElementById('dev-'+tab).classList.add('active');
 }
-
-// PRICING
-const pData={
-  mobile:[
-    {name:'Basic',desc:'Minor repairs & quick fixes',price:'₹499',note:'Starting price',feats:['Screen cleaning & polish','Software diagnosis','Battery health check','Charging port cleaning','Free full assessment'],cta:'Get Quote'},
-    {name:'Standard',desc:'Screen & battery service',price:'₹1,499',note:'Most common service — great value',feats:['Screen replacement (OEM)','Battery replacement (genuine)','Front camera fix','Speaker & mic repair','90-day warranty','Free diagnostics'],pop:true,cta:'Book Now'},
-    {name:'Premium',desc:'Full device restoration',price:'₹3,999',note:'Complete repair overhaul',feats:['Logic board / motherboard repair','Water damage treatment','Data recovery included','All hardware issues','6-month warranty','2-hour priority turnaround'],cta:'Get Quote'}
-  ],
-  laptop:[
-    {name:'Basic',desc:'Software & minor fixes',price:'₹799',note:'Starting price',feats:['OS reinstall & setup','Virus & malware removal','Keyboard & trackpad cleaning','RAM health check','Free diagnosis'],cta:'Get Quote'},
-    {name:'Standard',desc:'Screen & hardware repair',price:'₹2,999',note:'Most popular laptop service',feats:['Screen replacement','Keyboard replacement','Charging port repair','Thermal paste renewal','SSD health check','90-day warranty'],pop:true,cta:'Book Now'},
-    {name:'Premium',desc:'MacBook specialist service',price:'₹6,999',note:'Kolkata\'s best Apple Mac lab',feats:['Logic board repair / reball','Liquid damage full recovery','NVMe SSD upgrade','Complete deep clean','6-month warranty','Priority 4-hour turnaround'],cta:'Get Quote'}
+// CONTACT MODAL
+function openModal(title,sub,tag){
+  document.getElementById('modalTitle').textContent=title||'Get a Free Quote';
+  document.getElementById('modalSub').textContent=sub||'Tell us about your device and we\'ll get back to you within minutes.';
+  document.getElementById('modalTag').innerHTML=(tag||'🔧 Service Inquiry');
+  document.getElementById('contactModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){document.getElementById('contactModal').classList.remove('open');document.body.style.overflow='';}
+document.getElementById('contactModal').addEventListener('click',function(e){if(e.target===this)closeModal()});
+function handleModalForm(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('button[type=submit]');
+  btn.textContent='✓ Sent! We\'ll call you shortly.';btn.style.background='var(--green)';
+  setTimeout(()=>{btn.textContent='Send & Get Free Quote →';btn.style.background='';closeModal()},3000);
+}
+// SELL MODAL
+function openSellModal(){document.getElementById('sellModal').classList.add('open');document.body.style.overflow='hidden';}
+function closeSellModal(){document.getElementById('sellModal').classList.remove('open');document.body.style.overflow='';}
+document.getElementById('sellModal').addEventListener('click',function(e){if(e.target===this)closeSellModal()});
+function handleSellModal(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('button[type=submit]');
+  btn.textContent='✓ Quote Request Sent!';btn.style.background='var(--green)';
+  setTimeout(()=>{btn.textContent='Get My Free Quote →';btn.style.background='';closeSellModal()},3000);
+}
+function handleSellForm(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('button[type=submit]');
+  btn.textContent='✓ We\'ll call you within 30 min!';btn.style.background='var(--green)';
+  setTimeout(()=>{btn.textContent='Get Instant Quote →';btn.style.background=''},4000);
+}
+// SELL DEVICE SELECT
+function selectDevice(el,name){
+  document.querySelectorAll('.sell-device-card').forEach(c=>c.classList.remove('active-dev'));
+  el.classList.add('active-dev');
+  const inp=document.getElementById('quickDeviceInput');
+  if(inp&&inp.value==='')inp.placeholder='e.g. '+name+' model...';
+}
+// SVC2 DATA
+const svc2Data={
+  repair:[
+    {icon:'📱',color:'rgba(48,209,88,.15)',bcolor:'var(--green)',badge:'iPhone',img:'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=600&q=70',tag:'📱 iPhone',title:'iPhone Repair',desc:'Screen, battery, charging port, camera, water damage recovery — for every iPhone from 6 to 16 Pro Max. Genuine OEM parts, same-day service, 6-month warranty.',feats:['Screen & display replacement','Battery replacement','Charging port & speaker fix','Camera & Face ID repair','Water damage treatment','Logic board issues'],featured:false},
+    {icon:'💻',color:'rgba(191,90,242,.15)',bcolor:'var(--purple)',badge:'MacBook',img:'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&q=70',tag:'💻 MacBook',title:'MacBook Repair',desc:'Logic board, keyboard, screen, SSD upgrades, liquid damage recovery. Kolkata\'s best Apple Silicon & Intel Mac repair lab with 6-month warranty.',feats:['Screen replacement','Keyboard & trackpad repair','Logic board & SSD repair','Liquid damage recovery','Battery replacement','NVMe SSD upgrades'],featured:true},
+    {icon:'📲',color:'rgba(245,197,66,.15)',bcolor:'var(--gold)',badge:'iPad',img:'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&q=70',tag:'📲 iPad',title:'iPad Repair & Service',desc:'All iPad generations from Mini to Pro M4. Cracked screens, dead batteries, charging faults — genuine Apple parts, same-day service.',feats:['Screen & touch replacement','Battery service','Charging port repair','Camera fix','Apple Pencil pairing issues','Trade-in available'],featured:false},
   ],
   exchange:[
-    {name:'Quick Trade',desc:'Instant cash for your device',price:'Free',note:'Walk in anytime, no appointment',feats:['Instant device evaluation','Same-day cash or bank transfer','All brands & models accepted','Any condition — even dead','Free — no obligation to sell'],cta:'Start Exchange'},
-    {name:'Upgrade Trade',desc:'Trade in for a new device',price:'Best Value',note:'Maximum trade-in credit guaranteed',feats:['Premium valuation (15% above market)','Top-up credit for new device','Any condition accepted','New device setup & data transfer','Priority processing in 30 min'],pop:true,cta:'Upgrade Now'},
-    {name:'Bulk Trade',desc:'Multiple device exchange',price:'Custom',note:'Call us for a tailored quote',feats:['10+ devices handled at once','Corporate & business pricing','Free pickup from your location','Dedicated account manager','Same-day full settlement'],cta:'Contact Us'}
+    {icon:'🔄',color:'rgba(0,113,227,.15)',bcolor:'var(--bluel)',badge:'Exchange',img:'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=70',tag:'🔄 Trade-In',title:'Instant Device Exchange',desc:'Trade your old device for cash or credit toward a new one. All brands, all conditions. Kolkata\'s best exchange value guaranteed.',feats:['All brands accepted','Any condition welcome','Instant cash or bank transfer','15% above market rate','Free evaluation, no obligation','Same-day settlement'],featured:true},
+    {icon:'📦',color:'rgba(48,209,88,.15)',bcolor:'var(--green)',badge:'Bulk',img:'https://images.unsplash.com/photo-1611186871525-fd9bcf9e50b2?w=600&q=70',tag:'📦 Bulk',title:'Bulk & Corporate Exchange',desc:'Exchanging 5+ devices? We come to you. Free pickup anywhere in Kolkata, dedicated account manager, same-day settlement.',feats:['5+ devices: free pickup','Corporate pricing','Dedicated account manager','All devices evaluated on-site','Same-day full settlement','Signed agreements available'],featured:false},
+    {icon:'⬆️',color:'rgba(255,159,10,.15)',bcolor:'var(--orange)',badge:'Upgrade',img:'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&q=70',tag:'⬆️ Upgrade',title:'Upgrade Trade-In',desc:'Trade your current device for maximum credit toward a new iPhone or MacBook. Priority processing in 30 minutes.',feats:['Premium valuation for upgrades','Top-up credit for new device','Any condition accepted','New device setup included','Data transfer service','Priority 30-min processing'],featured:false},
+  ],
+  recovery:[
+    {icon:'💾',color:'rgba(255,159,10,.15)',bcolor:'var(--orange)',badge:'Recovery',img:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=70',tag:'💾 Data',title:'Data Recovery',desc:'Recover photos, contacts, and files from dead, water-damaged, or broken iPhones, iPads, and MacBooks. No data — no fee.',feats:['Dead device recovery','Water damage data rescue','Broken screen data transfer','MacBook SSD recovery','Signed NDA available','No data = no fee policy'],featured:true},
+    {icon:'🔋',color:'rgba(48,209,88,.15)',bcolor:'var(--green)',badge:'Battery',img:'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=70',tag:'🔋 Battery',title:'Battery Health Service',desc:'Genuine Apple battery replacements for all iPhones, iPads, and MacBooks. Restore your device to 100% battery health with 6-month warranty.',feats:['100% genuine Apple batteries','All iPhone & iPad models','MacBook battery replacement','Battery health diagnostics','6-month warranty included','Free pre-service check'],featured:false},
+    {icon:'🛡️',color:'rgba(41,151,255,.15)',bcolor:'var(--bluel)',badge:'Support',img:'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=600&q=70',tag:'🛡️ Support',title:'Post-Repair Support',desc:'All our repairs are backed by a written 6-month warranty. Software troubleshooting, diagnostics, and free support for all customers.',feats:['6-month written warranty','Free follow-up diagnostics','Software setup & OS reinstall','App configuration help','Priority support for regulars','Free re-repair if fault recurs'],featured:false},
   ]
 };
-function switchPricing(tab){
-  document.querySelectorAll('.p-tab').forEach((b,i)=>b.classList.toggle('active',['mobile','laptop','exchange'][i]===tab));
-  document.getElementById('pCards').innerHTML=pData[tab].map(c=>`
-    <div class="p-card${c.pop?' pop':''}">
-      ${c.pop?'<div class="pop-badge">⭐ Most Popular</div>':''}
-      <h3>${c.name}</h3>
-      <div class="pdesc">${c.desc}</div>
-      <div class="p-price">${c.price}</div>
-      <div class="p-note">${c.note}</div>
-      <ul class="p-feats">${c.feats.map(f=>`<li>${f}</li>`).join('')}</ul>
-      <button class="${c.pop?'btn-p':'btn-s'}" style="width:100%;justify-content:center" onclick="scrollTo('contact')">${c.cta}</button>
+function switchSvc2(tab){
+  document.querySelectorAll('.svc2-tab').forEach((b,i)=>b.classList.toggle('active',['repair','exchange','recovery'][i]===tab));
+  const g=document.getElementById('svc2Grid');
+  g.innerHTML=svc2Data[tab].map(c=>`
+    <div class="svc2-card ${c.featured?'featured':''}">
+      <div class="svc2-img">
+        <img src="${c.img}" alt="${c.title}">
+        <div class="svc2-img-tag">${c.tag}</div>
+        <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(7,7,15,.85))"></div>
+      </div>
+      <div class="svc2-body">
+        <div class="svc2-icon-row">
+          <div class="svc2-icon" style="background:${c.color}">${c.icon}</div>
+          <span class="svc2-badge" style="background:${c.color};color:${c.bcolor}">${c.badge}</span>
+          ${c.featured?'<span class="svc2-badge" style="background:rgba(0,113,227,.15);color:var(--bluel);margin-left:auto">⭐ Popular</span>':''}
+        </div>
+        <h3>${c.title}</h3>
+        <p>${c.desc}</p>
+        <ul class="svc2-feats">${c.feats.map(f=>`<li>${f}</li>`).join('')}</ul>
+        <button class="svc2-btn" onclick="openModal('${c.title}','Contact us for a free quote on ${c.title.toLowerCase()}.','${c.icon} ${c.title}')">Contact Us for Free Quote →</button>
+      </div>
     </div>`).join('');
+  g.querySelectorAll('.svc2-card').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';ring.style.width='54px';ring.style.height='54px'});
+    el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='36px';ring.style.height='36px'});
+  });
 }
-switchPricing('mobile');
-
+switchSvc2('repair');
 // FAQ
 function toggleFaq(btn){
   const item=btn.closest('.faq-item'),open=item.classList.contains('open');
   document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
   if(!open)item.classList.add('open');
 }
-
-// FORM
+// CONTACT FORM
 function handleForm(e){
   e.preventDefault();
   const btn=e.target.querySelector('button[type=submit]');
-  btn.textContent='✓ Message Sent! We\'ll call you shortly.';
-  btn.style.background='var(--green)';
+  btn.textContent='✓ Message Sent! We\'ll call you shortly.';btn.style.background='var(--green)';
   setTimeout(()=>{btn.textContent='Send Message & Get Quote →';btn.style.background=''},5000);
 }
-
 // LIVE COUNTER
 let lc=24;
 setInterval(()=>{if(Math.random()<.3){lc+=Math.floor(Math.random()*2)+1;const el=document.getElementById('liveCount');if(el)el.textContent=lc}},8000);
