@@ -169,11 +169,32 @@ nav.sc{background:rgba(7,7,15,.96);backdrop-filter:blur(28px) saturate(200%);bor
 }
 
 /* DRAWER */
-.drawer{position:fixed;inset:0;z-index:490;background:rgba(7,7,15,.98);backdrop-filter:blur(30px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;opacity:0;pointer-events:none;transition:opacity .3s}
-.drawer.open{opacity:1;pointer-events:all}
-.drawer a{font-family:'Syne',sans-serif;font-size:clamp(1.6rem,5vw,2.2rem);font-weight:700;color:var(--text);transition:color .2s;text-align:center}
-.drawer a:hover{color:var(--bluel)}
-.drawer .btn-nav{display:inline-flex;font-size:.95rem;padding:13px 34px;margin-top:8px}
+/* PROFESSIONAL MOBILE SIDEBAR */
+.drawer-overlay{position:fixed;inset:0;z-index:489;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .35s}
+.drawer-overlay.open{opacity:1;pointer-events:all}
+.drawer{position:fixed;top:0;right:-100%;width:min(320px,90vw);height:100%;z-index:490;background:var(--s1);border-left:1px solid var(--border);display:flex;flex-direction:column;padding:0;opacity:1;pointer-events:none;transition:right .35s cubic-bezier(.4,0,.2,1);overflow-y:auto;overflow-x:hidden}
+.drawer.open{right:0;pointer-events:all}
+.drawer-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--s1);z-index:1}
+.drawer-logo{display:flex;align-items:center;gap:8px}
+.drawer-logo-text{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;letter-spacing:-.03em}
+.drawer-logo-x{background:linear-gradient(135deg,#2997ff,#00c8ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.drawer-close{width:36px;height:36px;background:var(--s2);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;color:var(--dim);transition:all .2s}
+.drawer-close:hover{border-color:var(--bh);color:var(--text)}
+.drawer-contact-strip{margin:16px;background:linear-gradient(135deg,rgba(0,113,227,.15),rgba(41,151,255,.08));border:1px solid rgba(41,151,255,.25);border-radius:14px;padding:14px 16px}
+.drawer-phone{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:600;font-size:.9rem;margin-bottom:8px}
+.drawer-phone-icon{width:32px;height:32px;background:rgba(48,209,88,.15);border:1px solid rgba(48,209,88,.3);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.drawer-wa{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-size:.85rem}
+.drawer-wa-icon{width:32px;height:32px;background:rgba(37,211,102,.15);border:1px solid rgba(37,211,102,.3);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.drawer-nav-label{padding:10px 20px 6px;font-size:.68rem;font-weight:700;color:var(--dimmer);text-transform:uppercase;letter-spacing:.12em}
+.drawer-nav-links{list-style:none;padding:0 12px}
+.drawer-nav-links li{border-bottom:1px solid rgba(255,255,255,.05)}
+.drawer-nav-links a{display:flex;align-items:center;gap:12px;padding:14px 12px;font-size:.95rem;font-weight:500;color:var(--dim);text-decoration:none;border-radius:10px;transition:all .2s}
+.drawer-nav-links a:hover{color:var(--text);background:rgba(255,255,255,.05)}
+.drawer-nav-links .nav-icon{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.drawer-cta-section{padding:16px;margin-top:auto;border-top:1px solid var(--border)}
+.drawer-cta-section .btn-p{width:100%;justify-content:center;margin-bottom:10px}
+.drawer-cta-section .btn-s{width:100%;justify-content:center;font-size:.88rem}
+.drawer-hours{padding:12px 16px 16px;text-align:center;font-size:.75rem;color:var(--dimmer)}
 
 /* SHARED */
 .section-label{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;color:var(--bluel);text-transform:uppercase;letter-spacing:.12em;margin-bottom:12px}
@@ -235,8 +256,8 @@ section{position:relative;z-index:1}
 .htrust-icon{width:28px;height:28px;background:rgba(41,151,255,.12);border:1px solid rgba(41,151,255,.25);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
 
 /* HERO RIGHT — IMAGE CAROUSEL STACK */
-.hero-right{position:relative;height:560px;animation:fup .9s .3s ease both}
-.img-stack{position:relative;width:100%;height:100%}
+.hero-right{position:relative;height:560px;animation:fup .9s .3s ease both;overflow:hidden}
+.img-stack{position:relative;width:100%;height:100%;overflow:hidden}
 .img-card{position:absolute;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.1);box-shadow:0 30px 80px rgba(0,0,0,.6)}
 .img-card.main{width:72%;height:70%;top:0;right:0;animation:flt 7s ease-in-out infinite}
 .img-card.side1{width:48%;height:48%;bottom:0;left:0;animation:flt 8s ease-in-out infinite 1s}
@@ -860,13 +881,20 @@ section,div,header,footer,nav{max-width:100%;box-sizing:border-box}
 .newsletter-form input:focus{border-color:var(--blue)}
 
 /* Map embed responsive */
+@media(max-width:1100px){
+  .newsletter-inner{flex-direction:column;gap:20px}
+  .newsletter-text p{max-width:100%}
+}
 @media(max-width:768px){
   .company-intro-section{padding:50px 16px}
   .trust-badge{flex:0 0 calc(50% - 8px);min-width:140px;padding:12px 14px}
-  .newsletter-section{padding:40px 16px}
-  .newsletter-inner{flex-direction:column;gap:20px}
-  .newsletter-form{width:100%}
+  .newsletter-section{padding:32px 16px}
+  .newsletter-inner{flex-direction:column;gap:16px}
+  .newsletter-form{width:100%;flex-direction:column}
+  .newsletter-form input{width:100%;border-radius:12px;padding:14px 16px}
+  .newsletter-form .btn-p{width:100%;border-radius:12px;justify-content:center}
   .service-areas{gap:6px}
+  .newsletter-text h3{font-size:1.1rem}
 }
 @media(max-width:480px){
   .trust-badge{flex:0 0 100%}
@@ -877,15 +905,83 @@ section,div,header,footer,nav{max-width:100%;box-sizing:border-box}
 
 <div id="cur"></div><div id="ring"></div>
 
+<!-- MOBILE DRAWER OVERLAY -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+
 <!-- MOBILE DRAWER -->
 <div class="drawer" id="drawer">
-  <a href="#services" onclick="closeDrawer()">Services</a>
-  <a href="#devices" onclick="closeDrawer()">Devices</a>
-  <a href="#how" onclick="closeDrawer()">How It Works</a>
-  <a href="#pricing" onclick="closeDrawer()">Our Services</a>
-  <a href="#sell" onclick="closeDrawer()">💰 Sell Device</a>
-  <a href="#contact" onclick="closeDrawer()">Contact</a>
-  <button class="btn-nav" onclick="closeDrawer();scrollTo('contact')">Get Free Quote</button>
+  <!-- Header with logo & close button -->
+  <div class="drawer-header">
+    <a href="#" class="logo drawer-logo" onclick="closeDrawer()">
+      <img src="./images/favicon.png?v=1" alt="TechExchange" class="logo-img-icon" style="height:32px;width:32px">
+      <span class="drawer-logo-text">Tech<span class="drawer-logo-x">Exchange</span></span>
+    </a>
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="Close menu">✕</button>
+  </div>
+
+  <!-- Contact strip -->
+  <div class="drawer-contact-strip">
+    <a href="tel:+917003008434" class="drawer-phone">
+      <div class="drawer-phone-icon">📞</div>
+      <span>+91 70030 08434</span>
+    </a>
+    <a href="https://wa.me/917003008434?text=Hello%20TechExchange" class="drawer-wa" target="_blank">
+      <div class="drawer-wa-icon">💬</div>
+      <span>Chat on WhatsApp</span>
+    </a>
+  </div>
+
+  <!-- Navigation links -->
+  <div class="drawer-nav-label">Navigation</div>
+  <ul class="drawer-nav-links">
+    <li>
+      <a href="#services" onclick="closeDrawer()">
+        <div class="nav-icon" style="background:rgba(0,113,227,.15)">🔧</div>
+        Services
+      </a>
+    </li>
+    <li>
+      <a href="#devices" onclick="closeDrawer()">
+        <div class="nav-icon" style="background:rgba(41,151,255,.15)">📱</div>
+        Devices
+      </a>
+    </li>
+    <li>
+      <a href="#how" onclick="closeDrawer()">
+        <div class="nav-icon" style="background:rgba(48,209,88,.15)">✅</div>
+        How It Works
+      </a>
+    </li>
+    <li>
+      <a href="#pricing" onclick="closeDrawer()">
+        <div class="nav-icon" style="background:rgba(245,197,66,.15)">⭐</div>
+        Our Services
+      </a>
+    </li>
+    <li>
+      <a href="#sell" onclick="closeDrawer()">
+        <div class="nav-icon" style="background:rgba(245,197,66,.15)">💰</div>
+        Sell Device
+      </a>
+    </li>
+    <li>
+      <a href="#contact" onclick="closeDrawer()">
+        <div class="nav-icon" style="background:rgba(191,90,242,.15)">📩</div>
+        Contact
+      </a>
+    </li>
+  </ul>
+
+  <!-- CTA section -->
+  <div class="drawer-cta-section">
+    <button class="btn-p" onclick="closeDrawer();scrollToSection('contact')">Get Free Quote →</button>
+    <button class="btn-s" onclick="closeDrawer();openSellModal()">💰 Sell My Device</button>
+  </div>
+
+  <!-- Hours footer -->
+  <div class="drawer-hours">
+    Mon–Sat 10:00–20:00 &nbsp;|&nbsp; Sun 11:00–18:00
+  </div>
 </div>
 
 <!-- NAV -->
@@ -902,7 +998,7 @@ section,div,header,footer,nav{max-width:100%;box-sizing:border-box}
   </ul>
   <div class="nav-right">
     <a href="tel:+917003008434" class="nav-phone">📞 +91 70030 08434</a>
-    <button class="btn-nav" onclick="scrollTo('contact')">Get Free Quote</button>
+    <button class="btn-nav" onclick="scrollToSection('contact')">Get Free Quote</button>
     <button class="hamburger" id="hbg" onclick="toggleDrawer()">
       <span></span><span></span><span></span>
     </button>
@@ -969,8 +1065,8 @@ section,div,header,footer,nav{max-width:100%;box-sizing:border-box}
       </h1>
       <p class="hero-p">Your one-stop destination for iPhone, iPad &amp; MacBook repair, exchange, and premium Apple device services. Genuine parts, same-day service, and a 6-month warranty — all in Kolkata.</p>
       <div class="hero-actions">
-        <button class="btn-p" onclick="scrollTo('services')">Explore Services →</button>
-        <button class="btn-s" onclick="scrollTo('contact')">Get Free Estimate</button>
+        <button class="btn-p" onclick="scrollToSection('services')">Explore Services →</button>
+        <button class="btn-s" onclick="scrollToSection('contact')">Get Free Estimate</button>
       </div>
       <div class="hero-trust">
         <div class="htrust-item"><div class="htrust-icon">✅</div> Genuine Apple Parts</div>
@@ -1115,7 +1211,7 @@ section,div,header,footer,nav{max-width:100%;box-sizing:border-box}
             <li>Free — no obligation to sell</li>
             <li>Bulk & corporate pricing available</li>
           </ul>
-          <span class="svc-arrow">Start Exchange →</span>
+          <button class="svc-arrow" onclick="scrollToSection('sell')" style="background:none;border:none;cursor:pointer;padding:0;font-family:inherit">Start Exchange →</button>
         </div>
       </div>
       <div class="svc-card rv d1">
@@ -1131,7 +1227,7 @@ section,div,header,footer,nav{max-width:100%;box-sizing:border-box}
           </div>
           <h3>iPhone Repair</h3>
           <p>Screen, battery, charging port, camera, water damage — certified repair for every iPhone model with genuine Apple parts and 6-month warranty.</p>
-          <span class="svc-arrow">Explore →</span>
+          <button class="svc-arrow" onclick="scrollToSection('contact')" style="background:none;border:none;cursor:pointer;padding:0;font-family:inherit">Explore →</button>
         </div>
       </div>
       <div class="svc-card rv d2">
@@ -1147,7 +1243,7 @@ section,div,header,footer,nav{max-width:100%;box-sizing:border-box}
           </div>
           <h3>MacBook Repair</h3>
           <p>Logic board, keyboard, screen, SSD upgrade, liquid damage recovery. Kolkata's best equipped Mac lab with Apple Silicon expertise.</p>
-          <span class="svc-arrow">Explore →</span>
+          <button class="svc-arrow" onclick="scrollToSection('contact')" style="background:none;border:none;cursor:pointer;padding:0;font-family:inherit">Explore →</button>
         </div>
       </div>
       <div class="svc-card rv d1">
@@ -1163,7 +1259,7 @@ section,div,header,footer,nav{max-width:100%;box-sizing:border-box}
           </div>
           <h3>iPad Repair &amp; Service</h3>
           <p>From iPad Pro M4 to older models — screen replacements, battery service, charging port repairs and trade-ins. All generations covered.</p>
-          <span class="svc-arrow">Explore →</span>
+          <button class="svc-arrow" onclick="scrollToSection('contact')" style="background:none;border:none;cursor:pointer;padding:0;font-family:inherit">Explore →</button>
         </div>
       </div>
       <div class="svc-card rv d2">
@@ -1179,7 +1275,7 @@ section,div,header,footer,nav{max-width:100%;box-sizing:border-box}
           </div>
           <h3>Data Recovery</h3>
           <p>Recover data from dead, water-damaged, or broken iPhones, iPads, and MacBooks. Signed NDA available for sensitive data. No data — no fee.</p>
-          <span class="svc-arrow">Explore →</span>
+          <button class="svc-arrow" onclick="scrollToSection('contact')" style="background:none;border:none;cursor:pointer;padding:0;font-family:inherit">Explore →</button>
         </div>
       </div>
     </div>
@@ -1306,7 +1402,7 @@ section,div,header,footer,nav{max-width:100%;box-sizing:border-box}
         <div class="apr-item"><div class="apr-icon">⌚</div> Apple Watch</div>
         <div class="apr-item"><div class="apr-icon">🎧</div> AirPods / Beats</div>
       </div>
-      <button class="btn-p" onclick="scrollTo('contact')">Book Apple Service →</button>
+      <button class="btn-p" onclick="scrollToSection('contact')">Book Apple Service →</button>
     </div>
   </div>
 </section>
@@ -1375,7 +1471,7 @@ section,div,header,footer,nav{max-width:100%;box-sizing:border-box}
           <div><div class="ba-pt-title">No-Fix, No-Fee Policy</div><div class="ba-pt-desc">If we can't fix it, you pay nothing — not even the diagnostic charge. Zero risk, always.</div></div>
         </div>
       </div>
-      <button class="btn-p" onclick="scrollTo('contact')">Claim Your Promise →</button>
+      <button class="btn-p" onclick="scrollToSection('contact')">Claim Your Promise →</button>
     </div>
     <div class="ba-imgs rv d2">
       <div class="ba-img-block"><img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=600&q=80" alt="Workshop"><div class="ba-img-label"><div class="ba-label-dot" style="background:var(--green)"></div>Expert Workshop</div></div>
@@ -1687,7 +1783,7 @@ section,div,header,footer,nav{max-width:100%;box-sizing:border-box}
     <h2>Ready to Restore,<br>Exchange or Upgrade?</h2>
     <p>Walk in or book ahead — Kolkata's most trusted Apple service center is ready for you, 7 days a week, same-day turnaround on most repairs.</p>
     <div class="cta-actions">
-      <button class="btn-p" onclick="scrollTo('contact')">Book a Service Now →</button>
+      <button class="btn-p" onclick="scrollToSection('contact')">Book a Service Now →</button>
       <a href="tel:+917003008434" class="btn-s">📞 Call Us Now</a>
       <a href="https://wa.me/917003008434" class="btn-s">💬 WhatsApp Us</a>
     </div>
@@ -1827,13 +1923,15 @@ let drawerOpen=false;
 function toggleDrawer(){
   drawerOpen=!drawerOpen;
   document.getElementById('drawer').classList.toggle('open',drawerOpen);
+  const overlay=document.getElementById('drawerOverlay');
+  if(overlay)overlay.classList.toggle('open',drawerOpen);
   document.body.style.overflow=drawerOpen?'hidden':'';
   const s=document.querySelectorAll('#hbg span');
   if(drawerOpen){s[0].style.transform='rotate(45deg) translate(5px,5px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(5px,-5px)'}
   else{s.forEach(x=>{x.style.transform='';x.style.opacity=''})}
 }
 function closeDrawer(){if(drawerOpen)toggleDrawer()}
-function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+function scrollToSection(id){var el=document.getElementById(id);if(el){el.scrollIntoView({behavior:"smooth"});}}
 // REVEAL
 const rvObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
 document.querySelectorAll('.rv').forEach(el=>rvObs.observe(el));
