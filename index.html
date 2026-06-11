@@ -1926,6 +1926,8 @@ function toggleDrawer(){
   const overlay=document.getElementById('drawerOverlay');
   if(overlay)overlay.classList.toggle('open',drawerOpen);
   document.body.style.overflow=drawerOpen?'hidden':'';
+  const nav=document.getElementById('nav');
+  if(nav)nav.style.zIndex=drawerOpen?'1':'500';
   const s=document.querySelectorAll('#hbg span');
   if(drawerOpen){s[0].style.transform='rotate(45deg) translate(5px,5px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(5px,-5px)'}
   else{s.forEach(x=>{x.style.transform='';x.style.opacity=''})}
